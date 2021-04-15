@@ -1,11 +1,12 @@
-import puppeteer from 'puppeteer'
+import axios from 'axios'
+import './axiosInterceptors'
 
 
-const address = "https://www.cimri.com/"
+const addressCimri = "https://www.cimri.com"
 
 // eslint-disable-next-line
 export default {
-    async postaa() {
-
+    postCimri() {
+        return axios.get(addressCimri)
     }
 }
