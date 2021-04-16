@@ -7,13 +7,25 @@ import { loadState } from '../localStorage'
 // Actions
 export function login(event) {
     return async (dispatch) => {
-        const result = ""
+        const result = "await ...."
         return await dispatch({
             type: 'login',
             result
         })
     }
 }
+
+export function firsatlar(event) {
+    return async (dispatch) => {
+        const result = await event
+        return await dispatch({
+            type: 'firsatlar',
+            result
+        })
+    }
+}
+
+
 
 
 // Reducer
@@ -26,17 +38,29 @@ const loginReducer = (state = [], actions) => {
     }
 }
 
+const firsatlarReducer = (state = [], actions) => {
+    if (actions.type === "firsatlar") {
+        console.log(actions.result);
+        return actions
+    }
+    else {
+        return state
+    }
+}
+
 
 // Loaders
 const initialState = {
     User: {},
     /* Token: null, */
+    CimriFirsatlar: {},
 }
 
 const persistedState = loadState(initialState);
 
 export const allReducers = combineReducers({
     User: loginReducer,
+    CimriFirsatlar: firsatlarReducer,
 })
 
 /* redux extension için */
