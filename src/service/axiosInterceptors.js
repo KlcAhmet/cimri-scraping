@@ -1,8 +1,9 @@
 import axios from "axios"
-import Cimri from '../utils/cheerio/Cimri'
+import { Cimri } from '../map/UtilsMap'
+import store, { firsatlar } from "../store/index"
 
 axios.interceptors.response.use(function (response) {
-    if (response.config.url === "https://www.cimri.com/firsatlar") Cimri.firsatlarCimri(response.data)
+    if (response.config.url === "https://www.cimri.com/firsatlar") store.dispatch(firsatlar(Cimri.firsatlarCimri(response.data)))
     return response;
 }, function (err) {
     try {
