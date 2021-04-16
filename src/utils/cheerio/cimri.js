@@ -29,6 +29,6 @@ export default {
 
             productsData.push(dataObject)
         }
-        console.log(productsData);
+        return productsData
     }
 }
