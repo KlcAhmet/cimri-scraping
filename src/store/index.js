@@ -2,13 +2,12 @@ import thunk from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { loadState } from '../localStorage'
-import Post from '../services/Post'
 
 
-// actions
+// Actions
 export function login(event) {
     return async (dispatch) => {
-        const result = await Post.postLoginData(event)
+        const result = ""
         return await dispatch({
             type: 'login',
             result
@@ -17,10 +16,10 @@ export function login(event) {
 }
 
 
-// reducer
-const setUserReducer = (state = [], actions) => {
-    if (actions.type === "login" && actions.result.data.IsSuccess === true) {
-        return actions.result.data
+// Reducer
+const loginReducer = (state = [], actions) => {
+    if (actions.type === "login") {
+        return actions
     }
     else {
         return state
@@ -28,20 +27,16 @@ const setUserReducer = (state = [], actions) => {
 }
 
 
+// Loaders
 const initialState = {
     User: {},
-    Token: null,
-    ContactList: null,
-    Test: 'asdsad'
+    /* Token: null, */
 }
 
 const persistedState = loadState(initialState);
 
 export const allReducers = combineReducers({
-    User: setUserReducer,
-    ContactList: getContactListReducer,
-    Token: setTokenReducer,
-    Test: testReducer
+    User: loginReducer,
 })
 
 /* redux extension için */
