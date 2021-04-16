@@ -6,7 +6,7 @@ const addressCimri = "https://www.cimri.com"
 
 // eslint-disable-next-line
 export default {
-    postCimri() {
-        return axios.get(addressCimri)
+    postCimriFirsatlar() {
+        return axios.get(`${addressCimri}/firsatlar`)
     }
 }
