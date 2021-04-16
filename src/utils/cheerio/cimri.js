@@ -13,6 +13,7 @@ export default {
                 productDiscount: null,     // ürün indirim %'desi
                 productLastPrice: null,    // ürün eski fiyatı
                 productNewPrice: null,     // ürün yeni fiyatı
+                productCompanyLogo: null,
             }
             // eslint-disable-next-line
             if ($products('.jCiUCb > a >img')[i].attribs['data-src'] == 'undefined' || $products('.jCiUCb > a >img')[i].attribs['data-src'] == null) {
@@ -26,6 +27,7 @@ export default {
             dataObject.productDiscount = $products('.kaEwfN')[i].firstChild.data
             dataObject.productLastPrice = $products('.fFnjMz')[i].firstChild.data
             dataObject.productNewPrice = $products('.cRSgrJ')[i].firstChild.data
+            dataObject.productCompanyLogo = ($products('.gQDKzE ')[i].attribs['src'])
 
             productsData.push(dataObject)
         }
