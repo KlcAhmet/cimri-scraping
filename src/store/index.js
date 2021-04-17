@@ -40,7 +40,7 @@ const loginReducer = (state = [], actions) => {
 
 const firsatlarReducer = (state = [], actions) => {
     if (actions.type === "firsatlar") {
-        return actions
+        return actions.result
     }
     else {
         return state
