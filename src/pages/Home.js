@@ -2,7 +2,7 @@ import Post from "../service/Post"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { FirsatlarCard } from "../map/ComponentMap"
-import { Row, Col, CardDeck } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 const Home = props => {
     const CimriFirsatlar = useSelector(state => state.CimriFirsatlar)
