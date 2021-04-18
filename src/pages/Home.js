@@ -1,4 +1,4 @@
-import Post from "../service/Post"
+/* import Post from "../service/Post" */
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { FirsatlarCard } from "../map/ComponentMap"
@@ -15,7 +15,7 @@ const Home = props => {
             })
         }
         else {
-            Post.postCimriFirsatlar()
+            // Post.postCimriFirsatlar()       değişecek
         }
     }, [CimriFirsatlar])
 
