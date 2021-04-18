@@ -4,7 +4,7 @@ const User = props => {
 
     return (
         <div>
-            <img src={user} />
+            <img src={user} alt="" />
             <h6>User Name</h6>
         </div>
     )
