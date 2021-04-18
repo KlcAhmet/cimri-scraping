@@ -2,7 +2,7 @@ import {
   Router, Switch, Route
 } from "react-router-dom";
 /* Map */
-import { Home } from './map/ComponentMap'
+import { Home, Header } from './map/ComponentMap'
 import { history } from './map/UtilsMap'
 /* Components */
 import { Container } from 'react-bootstrap';
@@ -13,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <Router history={history}>
+        <Header />
         <Container>
           <Switch>
             <Route path="/" component={Home} />
