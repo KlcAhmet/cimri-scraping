@@ -16,7 +16,7 @@ const Header = props => {
                         if (e.target[0].value !== "") cimriSearch.searchCimri(e.target[0].value)
                     }}>
                         <Row>
-                            <Col xs={9}><Form.Group controlId="formText"><Form.Control type="text" placeholder="Ürün arayın" defaultValue="aaa bbb ccc" /></Form.Group></Col>
+                            <Col xs={9}><Form.Group controlId="formText"><Form.Control type="text" placeholder="Ürün arayın" /></Form.Group></Col>
                             <Col xs={3}><Button variant="primary" type="submit">ARA</Button></Col>
                         </Row>
                     </Form>
