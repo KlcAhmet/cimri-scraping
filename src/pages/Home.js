@@ -1,12 +1,31 @@
 import Post from "../service/Post"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux";
+import { FirsatlarCard } from "../map/ComponentMap"
+import { Row, Col, CardDeck } from 'react-bootstrap';
 
 const Home = props => {
+    const CimriFirsatlar = useSelector(state => state.CimriFirsatlar)
+    const [cards, setCard] = useState([])
+
     useEffect(() => {
-        Post.postCimriFirsatlar()
-    }, [])
+        if (CimriFirsatlar.length) {
+            CimriFirsatlar.forEach((item, index) => {
+                setCard(prevArray => [...prevArray, <FirsatlarCard key={index} props={item} />])
+            })
+        }
+        else {
+            Post.postCimriFirsatlar()
+        }
+    }, [CimriFirsatlar])
+
     return (
-        <p>home page</p>
+        <div>
+            <p>home page</p>
+            <Row>
+                {cards}
+            </Row>
+        </div>
     )
 }
 
