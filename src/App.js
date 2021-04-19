@@ -5,7 +5,6 @@ import {
 import { Home, Header, ProductsPage } from './map/ComponentMap'
 import { history } from './map/UtilsMap'
 /* Components */
-import { Container } from 'react-bootstrap';
 import { useSelector } from "react-redux";
 import { useEffect } from 'react';
 /* CSS */
@@ -26,12 +25,10 @@ function App() {
     <div className="App">
       <Router history={history}>
         <Header />
-        <Container>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/:Link" component={ProductsPage} />
-          </Switch>
-        </Container>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/:Link" component={ProductsPage} />
+        </Switch>
       </Router>
     </div>
   );
