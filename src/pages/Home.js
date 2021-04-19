@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { FirsatlarCard } from "../map/ComponentMap"
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 const Home = props => {
     const CimriFirsatlar = useSelector(state => state.CimriFirsatlar)
@@ -20,12 +20,14 @@ const Home = props => {
     }, [CimriFirsatlar])
 
     return (
-        <div>
-            <p>home page</p>
-            <Row>
-                {cards}
-            </Row>
-        </div>
+        <Container>
+            <div>
+                <p>home page</p>
+                <Row>
+                    {cards}
+                </Row>
+            </div>
+        </Container>
     )
 }
 
