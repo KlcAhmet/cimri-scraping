@@ -5,7 +5,7 @@ export default {
     async firsatlarCimri(data) {
         const $products = cheerio.load(data);
         const productsData = []
-        for (let i = 0; i < $products('.jnSyqP', data).length; i++) {
+        for (let i = 0; i < $products('.jnSyqP').length; i++) {
             const dataObject = {
                 productImageSrc: null,     // ürün resmi
                 productLink: null,         // ürün linki
@@ -34,6 +34,52 @@ export default {
         return productsData
     },
     async searchCimri(data) {
-        console.dir(data)
+        const $products = cheerio.load(data);
+        const productsData = []
+        const productsCategory = []
+        if ($products('.iRuHoK', data).length === 0) {
+            return false
+        }
+        else {
+            for (let i = 0; i < $products('.gKwibs > li').length; i++) {
+                const category = {
+                    categoryLink: null,
+                    categoryName: null,
+                    categoryProductsCount: null,
+                }
+                category.categoryLink = $products('.jQFKcv')[i].attribs.href
+                category.categoryName = $products('.gsTRet')[i].firstChild.data
+                category.categoryProductsCount = $products('.cHSmlu')[i].children[2].data
+                productsCategory.push(category)
+            }
+            for (let i = 0; i < $products('.ggOMjb').length; i++) {
+                const products = {
+                    productLink: null,
+                    productImageSrc: null,
+                    productTitle: null,
+                    productTopOffers: [],
+                }
+                products.productLink = `https://www.cimri.com${$products('.ggOMjb > article > a')[i].attribs.href}`
+                products.productImageSrc = $products('.iHtcZy')[i].firstChild.attribs['data-src']
+                products.productTitle = $products('.ggOMjb > article > h3')[i].attribs.title
+                $products('.top-offers')[i].children.forEach((item, index) => {
+                    const offer = {
+                        offerLink: null,
+                        offerName: null,
+                        offerPrice: null,
+                    }
+                    offer.offerLink = item.attribs.href
+                    offer.offerName = item.firstChild.firstChild.data
+                    offer.offerPrice = item.children[1].data
+                    products.productTopOffers.push(offer)
+                })
+                productsData.push(products)
+            }
+        }
+
+        const returnData = []
+        returnData.push(productsCategory)
+        returnData.push(productsData)
+        return returnData
     }
 }
