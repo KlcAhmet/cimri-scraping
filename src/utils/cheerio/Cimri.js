@@ -37,6 +37,7 @@ export default {
         const $products = cheerio.load(data);
         const productsData = []
         const productsCategory = []
+        const productsPageCount = []
         if ($products('.iRuHoK', data).length === 0) {
             return false
         }
@@ -77,9 +78,28 @@ export default {
             }
         }
 
-        const returnData = []
-        returnData.push(productsCategory)
-        returnData.push(productsData)
+        for (let i = 0; i < $products('.kxoiYk > a').length; i++) {
+            const pageNumber = {
+                link: null,
+                number: null,
+            }
+            //  console.dir($products('.kxoiYk > a')[i])
+            if ($products('.kxoiYk > a')[i].attribs.href) {
+                pageNumber.link = $products('.kxoiYk > a')[i].attribs.href
+                // eslint-disable-next-line
+                if ($products('.kxoiYk > a')[i].firstChild.data == 'undefined' || $products('.kxoiYk > a')[i].firstChild.data == null) { }
+                else pageNumber.number = $products('.kxoiYk > a')[i].firstChild.data
+            }
+            else {
+                pageNumber.link = null
+            }
+            productsPageCount.push(pageNumber)
+        }
+
+        let returnData = {}
+        returnData = { productsCategory: productsCategory }
+        returnData = { ...returnData, productsData: productsData }
+        returnData = { ...returnData, productsPageCount: productsPageCount }
         return returnData
     }
 }
