@@ -3,7 +3,6 @@ import { User } from '../map/ComponentMap'
 import { cimriSearch } from '../map/UtilsMap'
 
 const Header = props => {
-
     return (
         <header>
             <Row>
