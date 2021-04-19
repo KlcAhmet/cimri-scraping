@@ -1,5 +1,6 @@
 /* Pages */
 export { default as Home } from "../pages/Home"
+export { default as ProductsPage } from "../pages/ProductsPage"
 /* Components */
 export { default as FirsatlarCard } from "../components/FirsatlarCard"
 export { default as Header } from "../components/Header"
