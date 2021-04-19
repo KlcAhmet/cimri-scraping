@@ -1,13 +1,13 @@
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { User } from '../map/ComponentMap'
-import { cimriSearch } from '../map/UtilsMap'
+import { cimriSearch, history } from '../map/UtilsMap'
 
 const Header = props => {
     return (
         <header>
             <Row>
                 <Col xs={2}>
-                    <span>Header Logo</span>
+                    <button onClick={() => { history.push("/") }}>Header Logo</button>
                 </Col>
                 <Col xs={8}>
                     <Form onSubmit={(e) => {
