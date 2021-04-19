@@ -25,6 +25,16 @@ export function firsatlar(event) {
     }
 }
 
+export function searchCimri(event) {
+    return async (dispatch) => {
+        const result = await event
+        return await dispatch({
+            type: 'searchCimri',
+            result
+        })
+    }
+}
+
 
 
 
@@ -47,6 +57,15 @@ const firsatlarReducer = (state = [], actions) => {
     }
 }
 
+const searchCimriReducer = (state = [], actions) => {
+    if (actions.type === "searchCimri") {
+        return actions.result
+    }
+    else {
+        return state
+    }
+}
+
 
 // Loaders
 const initialState = {
@@ -60,6 +79,7 @@ const persistedState = loadState(initialState);
 export const allReducers = combineReducers({
     User: loginReducer,
     CimriFirsatlar: firsatlarReducer,
+    searchCimri: searchCimriReducer,
 })
 
 /* redux extension için */
