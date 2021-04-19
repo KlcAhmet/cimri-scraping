@@ -19,19 +19,22 @@ function App() {
     }
 
   }, [Link])
-
-
   return (
-    <div className="App">
+    <div className="App" onLoad={window.onbeforeunload = e => {
+      e.preventDefault();
+      history.push("/")
+    }}>
       <Router history={history}>
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/:Link" component={ProductsPage} />
+          <Route path="/:Link" on component={ProductsPage} />
         </Switch>
       </Router>
-    </div>
+    </div >
   );
 }
+
+
 
 export default App;
