@@ -33,7 +33,7 @@ export default {
         }
         return productsData
     },
-    async searchCimri(data) {
+    async searchCimri(data, link) {
         const $products = cheerio.load(data);
         const productsData = []
         const productsCategory = []
@@ -100,6 +100,7 @@ export default {
         returnData = { productsCategory: productsCategory }
         returnData = { ...returnData, productsData: productsData }
         returnData = { ...returnData, productsPageCount: productsPageCount }
+        returnData = { ...returnData, link: link }
         return returnData
     }
 }
