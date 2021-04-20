@@ -3,7 +3,7 @@ import {
 } from "react-router-dom";
 /* Map */
 import { Home, Header, ProductsPage } from './map/ComponentMap'
-import { history } from './map/UtilsMap'
+import { history, EventBus, Const } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux";
 import { useEffect } from 'react';
@@ -17,7 +17,6 @@ function App() {
     if (Link) {
       history.push(Link)
     }
-
   }, [Link])
   return (
     <div className="App" onLoad={window.onbeforeunload = e => {
@@ -35,6 +34,9 @@ function App() {
   );
 }
 
+EventBus.addListener(Const.events.SearchNotFound.type, () => {
+  console.log(Const.events.SearchNotFound.message)
+})
 
 
 export default App;
