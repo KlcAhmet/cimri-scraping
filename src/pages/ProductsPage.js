@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { Row, Col } from 'react-bootstrap'
-import { SearchCard } from "../map/ComponentMap"
+import { SearchCard, SearchSubCategories } from "../map/ComponentMap"
 
 function ProductsPage() {
     const seachCimri = useSelector(state => state.searchCimri)
     const [cards, setCard] = useState([])
+    const [subCategories, setSubCategory] = useState([])
 
     useEffect(() => {
         if (seachCimri) {
