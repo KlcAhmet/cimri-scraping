@@ -7,17 +7,31 @@ import { history, EventBus, Const } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux";
 import { useEffect } from 'react';
+/* localStorage */
+import { saveState } from './localStorage'
+/* Post */
+import Post from './service/Post'
 /* CSS */
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const Link = useSelector(state => state.searchCimri.link)
+  const SearchCimri = useSelector(state => state.searchCimri)
 
   useEffect(() => {
-    if (Link) {
-      history.push(Link)
+    if (SearchCimri.link) {
+      history.push(SearchCimri.link)
+      saveState({
+        searchCimri: {
+          link: SearchCimri.link
+        }
+      })
+      if (!SearchCimri.productsData) {
+        console.dir(SearchCimri.link)
+        Post.postCimriSearcher(SearchCimri.link)
+      }
+
     }
-  }, [Link])
+  }, [SearchCimri])
   return (
     <div className="App">
       <Router history={history}>
@@ -25,7 +39,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/notfound" component={ProductNotFound} />
-          <Route path="/:Link" on component={ProductsPage} />
+          <Route path="/:SearchCimri" on component={ProductsPage} />
         </Switch>
       </Router>
     </div >
