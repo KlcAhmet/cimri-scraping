@@ -23,10 +23,10 @@ export const saveState = (state) => {
             localStorage.setItem(Object.keys(state), serialState);
         }
         else {
-            /*     if (Object.keys(state)[0] === 'User') {
-                    const serialState = JSON.stringify(state);
-                    localStorage.setItem(Object.keys(state), serialState);
-                } */
+            if (Object.keys(state)[0] === 'searchCimri') {
+                const serialState = JSON.stringify(state);
+                localStorage.setItem(Object.keys(state), serialState);
+            }
         }
     } catch (err) {
         console.log(err);
