@@ -3,5 +3,8 @@ exports.events = {
         type: 'searchNotFound',
         message: 'Ürün Bulunamadı',
     },
+    SaveSearchLink: {
+        type: 'localStorageSave'
+    }
 
 }
