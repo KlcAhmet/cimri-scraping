@@ -87,7 +87,8 @@ export default {
             }
             //  console.dir($products('.kxoiYk > a')[i])
             if ($products('.kxoiYk > a')[i].attribs.href) {
-                pageNumber.link = $products('.kxoiYk > a')[i].attribs.href
+                const linksub = $products('.kxoiYk > a')[i].attribs.href
+                pageNumber.link = linksub.substring(1, linksub.length)
                 // eslint-disable-next-line
                 if ($products('.kxoiYk > a')[i].firstChild.data == 'undefined' || $products('.kxoiYk > a')[i].firstChild.data == null) { }
                 else pageNumber.number = $products('.kxoiYk > a')[i].firstChild.data
