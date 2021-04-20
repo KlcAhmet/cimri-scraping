@@ -9,11 +9,15 @@ function ProductsPage() {
 
     useEffect(() => {
         if (seachCimri) {
-            const cardsArr = []
-            seachCimri.productsData.forEach((item, index) => {
-                cardsArr.push(<SearchCard key={index} props={item} />)
-            })
-            setCard(cardsArr)
+            try {
+                const cardsArr = []
+                seachCimri.productsData.forEach((item, index) => {
+                    cardsArr.push(<SearchCard key={index} props={item} />)
+                })
+                setCard(cardsArr)
+            } catch (error) {
+
+            }
         }
     }, [seachCimri])
 
