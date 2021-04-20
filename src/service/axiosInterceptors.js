@@ -4,8 +4,7 @@ import store, { firsatlar, searchCimri } from "../store/index"
 
 axios.interceptors.response.use(function (response) {
     if (response.config.url === "https://www.cimri.com/firsatlar") store.dispatch(firsatlar(Cimri.firsatlarCimri(response.data)))
-    else if (response.config.url.substring(0, 30) === "https://www.cimri.com/arama?q=") store.dispatch(searchCimri(Cimri.searchCimri(response.data, response.config.url)))
-
+    else if (response.config.url.substring(0, 28) === "https://www.cimri.com/arama?") store.dispatch(searchCimri(Cimri.searchCimri(response.data, response.config.url)))
     return response;
 }, function (err) {
     try {
