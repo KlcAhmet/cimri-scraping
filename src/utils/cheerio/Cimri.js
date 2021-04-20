@@ -1,4 +1,5 @@
 import cheerio from 'cheerio'
+import { Events, Const } from '../../map/UtilsMap'
 
 // eslint-disable-next-line
 export default {
@@ -39,6 +40,7 @@ export default {
         const productsCategory = []
         const productsPageCount = []
         if ($products('.iRuHoK', data).length === 0) {
+            Events(Const.events.SearchNotFound.type)
             return false
         }
         else {
