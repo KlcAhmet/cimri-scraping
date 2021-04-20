@@ -26,7 +26,6 @@ function App() {
         }
       })
       if (!SearchCimri.productsData) {
-        console.dir(SearchCimri.link)
         Post.postCimriSearcher(SearchCimri.link)
       }
 
