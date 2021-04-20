@@ -2,7 +2,7 @@ import {
   Router, Switch, Route
 } from "react-router-dom";
 /* Map */
-import { Home, Header, ProductsPage } from './map/ComponentMap'
+import { Home, Header, ProductsPage, ProductNotFound } from './map/ComponentMap'
 import { history, EventBus, Const } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux";
@@ -19,14 +19,12 @@ function App() {
     }
   }, [Link])
   return (
-    <div className="App" onLoad={window.onbeforeunload = e => {
-      e.preventDefault();
-      history.push("/")
-    }}>
+    <div className="App">
       <Router history={history}>
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/notfound" component={ProductNotFound} />
           <Route path="/:Link" on component={ProductsPage} />
         </Switch>
       </Router>
@@ -35,7 +33,7 @@ function App() {
 }
 
 EventBus.addListener(Const.events.SearchNotFound.type, () => {
-  console.log(Const.events.SearchNotFound.message)
+  history.push("/notfound")
 })
 
 
