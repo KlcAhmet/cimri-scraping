@@ -72,6 +72,7 @@ const initialState = {
     User: {},
     /* Token: null, */
     CimriFirsatlar: {},
+    searchCimri: {},
 }
 
 const persistedState = loadState(initialState);
