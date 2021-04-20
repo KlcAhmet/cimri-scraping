@@ -102,7 +102,7 @@ export default {
         returnData = { productsCategory: productsCategory }
         returnData = { ...returnData, productsData: productsData }
         returnData = { ...returnData, productsPageCount: productsPageCount }
-        returnData = { ...returnData, link: link.substring(21, link.length) }
+        returnData = { ...returnData, link: link.substring(22, link.length) }
         return returnData
     }
 }
