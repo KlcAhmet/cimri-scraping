@@ -11,5 +11,8 @@ export default {
     },
     postCimriSearcher(link) {
         return axios.get(`${addressCimri}${link}`)
-    }
+    },
+    postCimriSearcherSubCategory(link) {
+        return axios.get(link)
+    },
 }
