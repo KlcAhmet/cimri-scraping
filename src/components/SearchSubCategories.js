@@ -3,7 +3,7 @@ import Post from '../service/Post'
 import store, { searchCimriSubCategoryLink } from '../store/index'
 
 function SearchSubCategories({ props }) {
-    console.dir(props)
+
     return (
         <ListGroup.Item>
             <Button onClick={() => {
