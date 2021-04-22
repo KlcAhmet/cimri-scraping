@@ -7,10 +7,6 @@ import { history, EventBus, Const, cimriSearch } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
-/* localStorage */
-import { saveState } from './localStorage'
-/* Post */
-import Post from './service/Post'
 /* CSS */
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,8 +20,8 @@ function App() {
       history.push(SearchCimri)
     }
     else if (window.location.search.length) {
-      console.log(window.location);
-      const temp = window.location.pathname.substring(1, window.location.pathname.length) + window.location.search
+      // eslint-disable-next-line
+      const temp = window.location.pathname + window.location.search
       cimriSearch.searchCimri(window.location.search.substring(2, window.location.search.length))
       setPage(<Route path="/:temp" component={ProductsPage} />)
       history.push(window.location.pathname + window.location.search)
