@@ -45,6 +45,16 @@ export function searchCimriSubCategoryLink(event) {
     }
 }
 
+export function searchGoogle(event) {
+    return async (dispatch) => {
+        const result = await event
+        return await dispatch({
+            type: 'searchGoogle',
+            result
+        })
+    }
+}
+
 
 
 
@@ -84,6 +94,15 @@ const searchCimriSubCategoryLinkReducer = (state = null, actions) => {
     }
 }
 
+const searchGoogleReducer = (state = [], actions) => {
+    if (actions.type === "searchGoogle") {
+        return actions.result
+    }
+    else {
+        return state
+    }
+}
+
 
 // Loaders
 const initialState = {
@@ -91,6 +110,7 @@ const initialState = {
     /* Token: null, */
     CimriFirsatlar: {},
     searchCimri: {},
+    searchGoogle: {},
 }
 
 const persistedState = loadState(initialState);
@@ -100,6 +120,7 @@ export const allReducers = combineReducers({
     CimriFirsatlar: firsatlarReducer,
     searchCimri: searchCimriReducer,
     searchCimriSubCategoryLink: searchCimriSubCategoryLinkReducer,
+    searchGoogle: searchGoogleReducer,
 })
 
 /* redux extension için */
