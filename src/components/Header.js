@@ -1,6 +1,6 @@
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { User } from '../map/ComponentMap'
-import { cimriSearch, history } from '../map/UtilsMap'
+import { /* cimriSearch, */googleSearch, history } from '../map/UtilsMap'
 
 const Header = props => {
     return (
@@ -12,7 +12,10 @@ const Header = props => {
                 <Col xs={8}>
                     <Form onSubmit={(e) => {
                         e.preventDefault()
-                        if (e.target[0].value !== "") cimriSearch.searchCimri(e.target[0].value)
+                        if (e.target[0].value !== "") {
+                            // cimriSearch.searchCimri(e.target[0].value)    değişecek
+                            googleSearch.searchGoogle(e.target[0].value)
+                        }
                     }}>
                         <Row>
                             <Col xs={9}><Form.Group controlId="formText"><Form.Control type="text" placeholder="Ürün arayın" /></Form.Group></Col>
