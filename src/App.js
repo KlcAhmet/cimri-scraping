@@ -20,7 +20,6 @@ function App() {
 
   useEffect(() => {
     if (SearchCimri) {
-      console.log("aa");
       setPage(<Route path="/:SearchCimri" component={ProductsPage} />)
       history.push(SearchCimri)
     }
