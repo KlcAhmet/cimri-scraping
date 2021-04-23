@@ -3,7 +3,6 @@ import './axiosInterceptors'
 
 
 const addressCimri = "https://www.cimri.com/"
-const adressGoogle = "https://www.google.com/"
 
 // eslint-disable-next-line
 export default {
@@ -17,8 +16,4 @@ export default {
     postCimriSearcherSubCategory(link) {
         return axios.get(link)
     },
-    // Google
-    postGoogleSearcher(link) {
-        return axios.get(`${adressGoogle}${link}`)
-    }
 }

@@ -1,6 +1,6 @@
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { User } from '../map/ComponentMap'
-import { /* cimriSearch, */googleSearch, history } from '../map/UtilsMap'
+import { cimriSearch, history } from '../map/UtilsMap'
 
 const Header = props => {
     return (
@@ -13,8 +13,7 @@ const Header = props => {
                     <Form onSubmit={(e) => {
                         e.preventDefault()
                         if (e.target[0].value !== "") {
-                            // cimriSearch.searchCimri(e.target[0].value)    değişecek
-                            googleSearch.searchGoogle(e.target[0].value)
+                            cimriSearch.searchCimri(e.target[0].value)
                         }
                     }}>
                         <Row>

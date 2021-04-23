@@ -14,7 +14,7 @@ export default {
                 productDiscount: null,     // ürün indirim %'desi
                 productLastPrice: null,    // ürün eski fiyatı
                 productNewPrice: null,     // ürün yeni fiyatı
-                productCompanyLogo: null,
+                productCompanyLogo: null,  // ürün logo
             }
             // eslint-disable-next-line
             if ($products('.jCiUCb > a >img')[i].attribs['data-src'] == 'undefined' || $products('.jCiUCb > a >img')[i].attribs['data-src'] == null) {
