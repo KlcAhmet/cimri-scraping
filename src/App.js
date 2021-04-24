@@ -7,8 +7,12 @@ import { history, EventBus, Const, cimriSearch } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
+/* Sercive */
+import Post from './service/Post'
 /* CSS */
 import 'bootstrap/dist/css/bootstrap.min.css';
+/* On load */
+Post.postCimriHeader()
 
 function App() {
   const SearchCimri = useSelector(state => state.searchCimri.link)
@@ -41,6 +45,8 @@ function App() {
     </div >
   );
 }
+
+/* Event Listener */
 
 EventBus.addListener(Const.events.SearchNotFound.type, () => {
   history.push("/notfound")
