@@ -105,5 +105,40 @@ export default {
         returnData = { ...returnData, productsPageCount: productsPageCount }
         returnData = { ...returnData, link: link.substring(22, link.length) }
         return returnData
+    },
+    async headerCimri(data) {
+        const $products = cheerio.load(data);
+        const headerArr = []
+        const headerSubArr = []
+
+        for (let i = 0; i < $products('.Ysndn > a').length; i++) {
+            const headerNav = {
+                link: null,
+                title: null,
+            }
+            headerNav.link = $products('.Ysndn > a')[i].attribs.href
+            headerNav.title = $products('.Ysndn > a')[i].firstChild.data
+            headerArr.push(headerNav)
+        }
+
+        for (let i = 0; i < $products('.d97ymr-4 > div > ol > li > a').length; i++) {
+            const subNav = {
+                link: null,
+                title: null,
+            }
+            if (0 === i % 10) {
+                headerSubArr.push('***')
+            }
+            subNav.link = $products('.d97ymr-4 > div > ol > li > a')[i].attribs.href
+            subNav.title = $products('.d97ymr-4 > div > ol > li > a')[i].firstChild.data
+            headerSubArr.push(subNav)
+        }
+
+        let returnData = {
+            headerNav: headerArr,
+            headerSubCategory: headerSubArr,
+        }
+
+        return await returnData
     }
 }
