@@ -1,4 +1,4 @@
-import { Row, Col, Form, Button, Navbar, Nav, NavDropdown, FormControl } from 'react-bootstrap';
+import { Row, Col, Form, Button, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { User } from '../map/ComponentMap'
 import { cimriSearch, history } from '../map/UtilsMap'
 import { useSelector } from "react-redux";
@@ -7,12 +7,32 @@ import { useEffect, useState } from 'react';
 const Header = props => {
     const headerCimri = useSelector(state => state.headerCimri)
     const [navigationBar, setNavigation] = useState([])
-    const [navSubCategory, setnavSubCategory] = useState([])
 
     useEffect(() => {
-        const navArr = []
+        try {
+            const navArr = []
+            let forIndex = 0
+            for (let i = 0; i < headerCimri.headerNav.length; i++) {
+                const temp = []
+                for (let j = forIndex; j < forIndex + 10; j++) {
+                    temp.push(
+                        <NavDropdown.Item key={j} onClick={(e) => {
+                            cimriSearch.searchCimri(headerCimri.headerSubCategory[j].link.substring(1, headerCimri.headerSubCategory[j].link.length))
+                        }}
+                        >{headerCimri.headerSubCategory[j].title}</NavDropdown.Item>
+                    )
+                }
+                navArr.push(
+                    <NavDropdown key={i} title={headerCimri.headerNav[i].title} id="basic-nav-dropdown" >
+                        {temp}
+                    </NavDropdown >
+                )
+                forIndex += 10
+            }
+            setNavigation(navArr)
+        } catch (error) {
 
-
+        }
     }, [headerCimri])
 
     return (
@@ -42,12 +62,7 @@ const Header = props => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown>
+                        {navigationBar}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
