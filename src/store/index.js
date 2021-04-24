@@ -45,6 +45,16 @@ export function searchCimriSubCategoryLink(event) {
     }
 }
 
+export function headerCimri(event) {
+    return async (dispatch) => {
+        const result = await event
+        return await dispatch({
+            type: 'headerCimri',
+            result
+        })
+    }
+}
+
 
 
 
@@ -85,6 +95,15 @@ const searchCimriSubCategoryLinkReducer = (state = null, actions) => {
     }
 }
 
+const headerCimriReducer = (state = [], actions) => {
+    if (actions.type === "headerCimri") {
+        return actions.result
+    }
+    else {
+        return state
+    }
+}
+
 
 
 // Loaders
@@ -102,6 +121,7 @@ export const allReducers = combineReducers({
     CimriFirsatlar: firsatlarReducer,
     searchCimri: searchCimriReducer,
     searchCimriSubCategoryLink: searchCimriSubCategoryLinkReducer,
+    headerCimri: headerCimriReducer,
 })
 
 /* redux extension için */
