@@ -126,9 +126,6 @@ export default {
                 link: null,
                 title: null,
             }
-            if (0 === i % 10) {
-                headerSubArr.push('***')
-            }
             subNav.link = $products('.d97ymr-4 > div > ol > li > a')[i].attribs.href
             subNav.title = $products('.d97ymr-4 > div > ol > li > a')[i].firstChild.data
             headerSubArr.push(subNav)
