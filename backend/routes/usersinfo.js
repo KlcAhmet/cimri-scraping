@@ -57,14 +57,24 @@ router.route('/getuserinfo/').get((req, res) => {
 
 
 router.route('/changeuserinfo/:id').post((req, res) => {
-    const userPassword = req.body.userPassword
+    const name = req.body.name
+    const surname = req.body.surname
+    const gender = Number(req.body.gender)
+    const birth = Date(req.body.birth)
+    const city = req.body.city
+    const address = req.body.address
 
-    User.findById(req.params.id)
+    UserInfo.findById(req.params.id)
         .then((response) => {
-            response.userPassword = userPassword
+            response.name = name
+            response.surname = surname
+            response.gender = gender
+            response.birth = birth
+            response.city = city
+            response.address = address
 
             res.json({
-                type: 'changepassword',
+                type: 'changeuserinfo',
                 isSuccess: true,
             })
             response.save()
@@ -72,23 +82,5 @@ router.route('/changeuserinfo/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
-
-
-/*    UserInfo.findById(req.params.id)
-        .then((response) => {
-            response.userPassword = userPassword
- 
-            res.json({
-                type: 'changepassword',
-                isSuccess: true,
-            })
-            response.save()
-        })
-        .catch(err => res.status(400).json('Error: ' + err)) */
-/*  response.surname = surname
- response.gender = gender
- response.birth = birth
- response.city = city
- response.address = address */
 
 module.exports = router
