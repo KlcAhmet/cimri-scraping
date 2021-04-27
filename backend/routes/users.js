@@ -18,6 +18,35 @@ router.route('/signup').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/signin').get((req, res) => {
+    const userMail = req.body.userMail
+    const userPassword = req.body.userPassword
 
+    User.find({
+        "userMail": userMail,
+        "userPassword": userPassword
+    })
+        .then((response) => {
+
+            console.log(response)
+            if (response.length) {
+                res.json({
+                    res: 'login',
+                    isSuccess: true,
+                    response: response[0]
+                })
+            }
+            else {
+                res.json(
+                    {
+                        res: 'login',
+                        isSuccess: false,
+                        response: null
+                    }
+                )
+            }
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
 
 module.exports = router
