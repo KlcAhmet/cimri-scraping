@@ -29,12 +29,6 @@ router.route('/add').post((req, res) => {
 
 router.route('/getuserinfo/').get((req, res) => {
     const userID = req.body.userID
-    const name = req.body.name
-    const surname = req.body.surname
-    const gender = Number(req.body.gender)
-    const birth = Date(req.body.birth)
-    const city = req.body.city
-    const address = req.body.address
 
     UserInfo.find({
         "userID": userID
@@ -61,6 +55,22 @@ router.route('/getuserinfo/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+
+router.route('/changeuserinfo/:id').post((req, res) => {
+    const userPassword = req.body.userPassword
+
+    User.findById(req.params.id)
+        .then((response) => {
+            response.userPassword = userPassword
+
+            res.json({
+                type: 'changepassword',
+                isSuccess: true,
+            })
+            response.save()
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
 
 
 
