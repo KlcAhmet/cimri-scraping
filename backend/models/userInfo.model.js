@@ -3,19 +3,11 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const userInfo = new Schema({
-    userMail: {
+    userID: {
         type: String,
         required: true,
         unique: true,
         trim: true,
-        minlength: 9,
-    },
-    userPassword: {
-        type: String,
-        required: true,
-        unique: false,
-        trim: true,
-        minlength: 4,
     },
     name: {
         type: String,
@@ -23,29 +15,30 @@ const userInfo = new Schema({
         trim: true,
         maxlength: 25,
     },
-    surname={
+    surname: {
         type: String,
         required: true,
         trim: true,
         maxlength: 25,
     },
-    gender={
-        type: String,
+    gender: {
+        type: Number,
         required: true,
     },
-    birth={
+    birth: {
         type: String,
-        required: true,
     },
-    city={
+    city: {
         type: String,
         trim: true,
-        required: true,
     },
-    address={
+    address: {
         type: String,
-        required: true,
         trim: true,
         maxlength: 100,
     },
 })
+
+const UserInfo = mongoose.model('UserInfo', userInfo)
+
+module.exports = UserInfo
