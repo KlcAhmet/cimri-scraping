@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const userInfo = new Schema({
     userID: {
-        type: String,
+        type: Number,
         required: true,
         unique: true,
         trim: true,
@@ -26,7 +26,7 @@ const userInfo = new Schema({
         required: true,
     },
     birth: {
-        type: String,
+        type: Date,
     },
     city: {
         type: String,
