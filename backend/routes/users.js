@@ -32,7 +32,6 @@ router.route('/signin').get((req, res) => {
     })
         .then((response) => {
 
-            console.log(response)
             if (response.length) {
                 res.json({
                     type: 'login',
