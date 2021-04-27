@@ -69,4 +69,17 @@ router.route('/changepassword/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/:id').delete((req, res) => {
+
+    User.findByIdAndDelete(req.params.id)
+        .then((response) => {
+            res.json({
+                type: 'userdelete',
+                isSuccess: true,
+            })
+            response.save()
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+
 module.exports = router
