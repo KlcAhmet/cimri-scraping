@@ -53,4 +53,20 @@ router.route('/signin').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/changepassword/:id').post((req, res) => {
+    const userPassword = req.body.userPassword
+
+    User.findById(req.params.id)
+        .then((response) => {
+            response.userPassword = userPassword
+
+            res.json({
+                type: 'changepassword',
+                isSuccess: true,
+            })
+            response.save()
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+
 module.exports = router
