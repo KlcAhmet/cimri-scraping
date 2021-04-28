@@ -21,7 +21,7 @@ router.route('/add').post((req, res) => {
 
     newUserInfo.save()
         .then(() => res.json({
-            type: 'info add',
+            type: 'infoadd',
             isSuccess: true,
         }))
         .catch(err => res.status(400).json('Error: ' + err))
@@ -82,5 +82,17 @@ router.route('/changeuserinfo/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/:id').delete((req, res) => {
+
+    UserInfo.findByIdAndDelete(req.params.id)
+        .then((response) => {
+            res.json({
+                type: 'userinfodelete',
+                isSuccess: true,
+            })
+            response.save()
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
 
 module.exports = router
