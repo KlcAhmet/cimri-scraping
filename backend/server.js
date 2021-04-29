@@ -24,10 +24,13 @@ connection.once('open', () => {
 const usersRouter = require('./routes/users')
 const usersInfoRouter = require('./routes/usersinfo')
 const userProductsRouter = require('./routes/userProducts')
+const cimriRouter = require('./routes/cimri')
+
 /* route */
 app.use('/users', usersRouter)
 app.use('/usersinfo', usersInfoRouter)
 app.use('/userProducts', userProductsRouter)
+app.use('/cimri', cimriRouter)
 
 app.listen(port, () => {
     console.log(`Server is runnig on port: ${port}`)
