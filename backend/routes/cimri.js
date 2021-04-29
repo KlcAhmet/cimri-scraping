@@ -35,10 +35,11 @@ router.route('/firsatlar').get((req, res) => {
 })
 
 router.route('/search').get((req, res) => {
-    axios.get(`${addressCimri}${req.body.searchLink}`)
+    const link = req.body.searchLink
+    const searchlink = cimriSearch.searchCimri(link)
+    axios.get(`${addressCimri}${searchlink}`)
         .then(async function (response) {
-            const data = await Cimri.searchCimri(response.data, response.config.url)
-            console.dir(data)
+            const data = Cimri.searchCimri(response.data, response.config.url)
             res.json({
                 data: data
             })
