@@ -70,9 +70,26 @@ router.route('/changeproduct/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
-/* 
-                        DELETE YAZILACAK
+router.route('/:id').delete((req, res) => {
 
-*/
+    UserProducts.findByIdAndDelete(req.params.id)
+        .then((response) => {
+            if (response === null) {
+                res.json({
+                    type: 'productdelete',
+                    isSuccess: false,
+                    response: response,
+                })
+            }
+            else {
+                res.json({
+                    type: 'productdelete',
+                    isSuccess: true,
+                    response: response
+                })
+            }
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
 
 module.exports = router
