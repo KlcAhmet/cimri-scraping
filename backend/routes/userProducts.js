@@ -52,4 +52,27 @@ router.route('/getproducts/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/changeproduct/:id').post((req, res) => {
+    const favorite = req.body.favorite
+    const priceAlarm = req.body.priceAlarm
+
+    UserProducts.findById(req.params.id)
+        .then((response) => {
+            response.favorite = favorite
+            response.priceAlarm = priceAlarm
+
+            res.json({
+                type: 'changeproducts',
+                isSuccess: true,
+            })
+            response.save()
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+
+/* 
+                        DELETE YAZILACAK
+
+*/
+
 module.exports = router
