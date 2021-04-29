@@ -90,7 +90,6 @@ router.route('/:id').delete((req, res) => {
                 type: 'userinfodelete',
                 isSuccess: true,
             })
-            response.save()
         })
         .catch(err => res.status(400).json('Error: ' + err))
 })
