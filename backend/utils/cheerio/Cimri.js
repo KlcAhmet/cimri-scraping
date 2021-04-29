@@ -1,8 +1,6 @@
 const cheerio = require('cheerio')
 
-
-// eslint-disable-next-line
-async function firsatlarCimri(data) {
+function firsatlarCimri(data) {
     const $products = cheerio.load(data);
     const productsData = []
     for (let i = 0; i < $products('.jnSyqP').length; i++) {
@@ -15,7 +13,6 @@ async function firsatlarCimri(data) {
             productNewPrice: null,     // ürün yeni fiyatı
             productCompanyLogo: null,  // ürün logo
         }
-        // eslint-disable-next-line
         if ($products('.jCiUCb > a >img')[i].attribs['data-src'] == 'undefined' || $products('.jCiUCb > a >img')[i].attribs['data-src'] == null) {
             dataObject.productImageSrc = $products('.jCiUCb > a >img')[i].attribs['src']
         }
@@ -33,13 +30,12 @@ async function firsatlarCimri(data) {
     }
     return productsData
 }
-async function searchCimri(data, link) {
+function searchCimri(data, link) {
     const $products = cheerio.load(data);
     const productsData = []
     const productsCategory = []
     const productsPageCount = []
     if ($products('.iRuHoK', data).length === 0) {
-        /* Events(Const.events.SearchNotFound.type) */   // değişecek
         return false
     }
     else {
@@ -84,11 +80,9 @@ async function searchCimri(data, link) {
             link: null,
             number: null,
         }
-        //  console.dir($products('.kxoiYk > a')[i])
         if ($products('.kxoiYk > a')[i].attribs.href) {
             const linksub = $products('.kxoiYk > a')[i].attribs.href
             pageNumber.link = linksub.substring(1, linksub.length)
-            // eslint-disable-next-line
             if ($products('.kxoiYk > a')[i].firstChild.data == 'undefined' || $products('.kxoiYk > a')[i].firstChild.data == null) { }
             else pageNumber.number = $products('.kxoiYk > a')[i].firstChild.data
         }
@@ -105,7 +99,8 @@ async function searchCimri(data, link) {
     returnData = { ...returnData, link: link.substring(22, link.length) }
     return returnData
 }
-async function headerCimri(data) {
+
+function headerCimri(data) {
     const $products = cheerio.load(data);
     const headerArr = []
     const headerSubArr = []
@@ -135,7 +130,7 @@ async function headerCimri(data) {
         headerSubCategory: headerSubArr,
     }
 
-    return await returnData
+    return returnData
 }
 
 module.exports = { firsatlarCimri, headerCimri, searchCimri }
