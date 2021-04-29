@@ -138,4 +138,4 @@ async function headerCimri(data) {
     return await returnData
 }
 
-module.exports = { firsatlarCimri }
+module.exports = { firsatlarCimri, headerCimri }
