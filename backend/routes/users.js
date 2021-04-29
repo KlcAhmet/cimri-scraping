@@ -72,11 +72,20 @@ router.route('/:id').delete((req, res) => {
 
     User.findByIdAndDelete(req.params.id)
         .then((response) => {
-            res.json({
-                type: 'userdelete',
-                isSuccess: true,
-            })
-            response.save()
+            if (response === null) {
+                res.json({
+                    type: 'userdelete',
+                    isSuccess: false,
+                    response: response
+                })
+            }
+            else {
+                res.json({
+                    type: 'userdelete',
+                    isSuccess: true,
+                    response: response
+                })
+            }
         })
         .catch(err => res.status(400).json('Error: ' + err))
 })
