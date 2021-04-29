@@ -1,4 +1,4 @@
-async function searchCimri(link) {
+function searchCimri(link) {
     const linkSplit = link.split(' ')
     let postLink = ["arama?q="]
     linkSplit.forEach(item => {
@@ -10,7 +10,8 @@ async function searchCimri(link) {
             else postLink.push(`%20${item}`)
         }
     })
-    return await postLink.join('')
+    const returnlink = postLink.join('')
+    return returnlink.toString()
 }
 
 module.exports = { searchCimri }
