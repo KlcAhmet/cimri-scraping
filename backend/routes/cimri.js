@@ -5,21 +5,32 @@ const Cimri = require('../utils/cheerio/Cimri')
 const addressCimri = "https://www.cimri.com/"
 
 router.route('/').get((req, res) => {
-    axios.get(`${addressCimri}firsatlar`)
+    axios.get(`${addressCimri}`)
         .then(async function (response) {
             // console.dir(Cimri.firsatlarCimri(response.data))
-            const data = await Cimri.firsatlarCimri(response.data)
+            const data = await Cimri.headerCimri(response.data)
             res.json({
-                response: data
+                data: data
             })
         })
         .catch(function (error) {
             // handle error
             console.log(error);
         })
-        .then(function () {
-            // always executed
-        });
+})
+
+router.route('/firsatlar').get((req, res) => {
+    axios.get(`${addressCimri}firsatlar`)
+        .then(async function (response) {
+            const data = await Cimri.firsatlarCimri(response.data)
+            res.json({
+                data: data
+            })
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
 })
 
 
