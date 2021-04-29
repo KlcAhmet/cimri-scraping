@@ -50,5 +50,19 @@ router.route('/search').get((req, res) => {
         })
 })
 
+router.route('/searchsub').get((req, res) => {
+    axios.get(`https://www.cimri.com${req.body.searchLink}`)
+        .then(async function (response) {
+            const data = Cimri.searchCimri(response.data, response.config.url)
+            console.log(response.config.url);
+            res.json({
+                data: data
+            })
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+})
 
 module.exports = router
