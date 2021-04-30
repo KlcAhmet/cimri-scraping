@@ -90,7 +90,7 @@ router.route('/search').post((req, res) => {
 
 })
 
-router.route('/searchsub').get((req, res) => {
+router.route('/searchsub').post((req, res) => {
     try {
         axios.get(`https://www.cimri.com${req.body.searchLink}`)
             .then(async function (response) {
