@@ -1,6 +1,6 @@
 import { Row, Col, Form, Button, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { User } from '../map/ComponentMap'
-import { cimriSearch, history } from '../map/UtilsMap'
+import { history } from '../map/UtilsMap'
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 
@@ -17,7 +17,7 @@ const Header = props => {
                 for (let j = forIndex; j < forIndex + 10; j++) {
                     temp.push(
                         <NavDropdown.Item key={j} onClick={(e) => {
-                            cimriSearch.searchCimri(headerCimri.headerSubCategory[j].link.substring(1, headerCimri.headerSubCategory[j].link.length))
+                            //     cimriSearch.searchCimri(headerCimri.headerSubCategory[j].link.substring(1, headerCimri.headerSubCategory[j].link.length)) değişecek
                         }}
                         >{headerCimri.headerSubCategory[j].title}</NavDropdown.Item>
                     )
@@ -45,7 +45,7 @@ const Header = props => {
                     <Form onSubmit={(e) => {
                         e.preventDefault()
                         if (e.target[0].value !== "") {
-                            cimriSearch.searchCimri(e.target[0].value)
+                            //    cimriSearch.searchCimri(e.target[0].value) değişecek
                         }
                     }}>
                         <Row>

@@ -3,7 +3,7 @@ import {
 } from "react-router-dom";
 /* Map */
 import { Home, Header, ProductsPage, ProductNotFound } from './map/ComponentMap'
-import { history, EventBus, Const, cimriSearch } from './map/UtilsMap'
+import { history,/*  EventBus, Const, */ } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
@@ -26,7 +26,7 @@ function App() {
     else if (window.location.search.length) {
       // eslint-disable-next-line
       const temp = window.location.pathname + window.location.search
-      cimriSearch.searchCimri(window.location.search.substring(2, window.location.search.length))
+      //  cimriSearch.searchCimri(window.location.search.substring(2, window.location.search.length)) değişecek
       setPage(<Route path="/:temp" component={ProductsPage} />)
       history.push(window.location.pathname + window.location.search)
     }
@@ -46,11 +46,6 @@ function App() {
   );
 }
 
-/* Event Listener */
-
-EventBus.addListener(Const.events.SearchNotFound.type, () => {
-  history.push("/notfound")
-})
 
 
 export default App;
