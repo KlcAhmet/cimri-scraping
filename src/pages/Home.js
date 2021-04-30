@@ -1,8 +1,8 @@
-/* import Post from "../service/Post" */
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import { FirsatlarCard } from "../map/ComponentMap"
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap'
+import { postFirsatlar } from "../map/ServiceMap"
 
 const Home = props => {
     const CimriFirsatlar = useSelector(state => state.CimriFirsatlar)
@@ -15,7 +15,7 @@ const Home = props => {
             })
         }
         else {
-            // Post.postCimriFirsatlar()       değişecek
+            //  postFirsatlar()
         }
     }, [CimriFirsatlar])
 
