@@ -3,6 +3,7 @@ import { User } from '../map/ComponentMap'
 import { history } from '../map/UtilsMap'
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
+import { postSearch } from '../map/ServiceMap'
 
 const Header = props => {
     const headerCimri = useSelector(state => state.headerCimri)
@@ -45,7 +46,7 @@ const Header = props => {
                     <Form onSubmit={(e) => {
                         e.preventDefault()
                         if (e.target[0].value !== "") {
-                            //    cimriSearch.searchCimri(e.target[0].value) değişecek
+                            postSearch(e.target[0].value)
                         }
                     }}>
                         <Row>
