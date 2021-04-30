@@ -62,8 +62,14 @@ router.route('/firsatlar').get((req, res) => {
 
 router.route('/search').post((req, res) => {
     try {
-        const link = req.body.searchLink
-        const searchlink = cimriSearch.searchCimri(link)
+        let link = req.body.searchLink
+
+        if ('arama' == req.body.searchLink.substring(0, 5)) {
+        }
+        else {
+            link = cimriSearch.searchCimri(link)
+        }
+        const searchlink = link
         axios.get(`${addressCimri}${searchlink}`)
             .then(async function (response) {
                 const data = Cimri.searchCimri(response.data, response.config.url)
@@ -81,6 +87,7 @@ router.route('/search').post((req, res) => {
                 })
             })
     } catch (error) {
+        console.log(error);
         res.json({
             success: false,
             type: 'search',
