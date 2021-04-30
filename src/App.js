@@ -8,11 +8,11 @@ import { history,/*  EventBus, Const, */ } from './map/UtilsMap'
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 /* Sercive */
-import Post from './service/Post'
+import { postHeader } from './map/ServiceMap'
 /* CSS */
 import 'bootstrap/dist/css/bootstrap.min.css';
 /* On load */
-Post.postCimriHeader()
+//postHeader()
 
 function App() {
   const SearchCimri = useSelector(state => state.searchCimri.link)
