@@ -13,7 +13,6 @@ function postFirsatlar() {
 }
 
 function postSearch(search) {
-
     const data = { searchLink: search }
     const config = {
         headers: {
@@ -23,8 +22,19 @@ function postSearch(search) {
 
     return axios.post(`${uri}${port}cimri/search`, data, config)
 }
+
+function postSearchSubCategory(search) {
+    const data = { searchLink: search }
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    };
+
+    return axios.post(`${uri}${port}cimri/searchsub`, data, config)
+}
 /*     postCimriSearcher(link) {
-    return axios.get(`${addressCimri}${link}`)
+    return axios.get(`${addressCimri}${link}`)   bitti
 },
 postCimriSearcherSubCategory(link) {
     return axios.get(link)
@@ -33,4 +43,4 @@ postCimriHeader() {
     return axios.get(addressCimri)
 }, */
 
-export { postHeader, postFirsatlar, postSearch }
+export { postHeader, postFirsatlar, postSearch, postSearchSubCategory }
