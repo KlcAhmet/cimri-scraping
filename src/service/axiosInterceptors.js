@@ -20,14 +20,11 @@ axios.interceptors.response.use(function (response) {
         // event bus gelecek
     }
     else if (response.data.success === true && response.data.type === "search" && response.data !== null) { store.dispatch(searchCimri(response.data.data, response.config.url)) }
+    else if (response.data.success === true && response.data.type === "subcategory") { store.dispatch(searchCimri(response.data.data, response.config.url)) }
+
+
+
     console.dir(response)
-
-
-
-
-
-    /* arama */
-    //  else if (response.config.url === store.getState().searchCimriSubCategoryLink) store.dispatch(searchCimri(Cimri.searchCimri(response.data, response.config.url)))
 
     return response;
 }, function (err) {
