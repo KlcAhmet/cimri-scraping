@@ -33,14 +33,5 @@ function postSearchSubCategory(search) {
 
     return axios.post(`${uri}${port}cimri/searchsub`, data, config)
 }
-/*     postCimriSearcher(link) {
-    return axios.get(`${addressCimri}${link}`)   bitti
-},
-postCimriSearcherSubCategory(link) {
-    return axios.get(link)
-},
-postCimriHeader() {
-    return axios.get(addressCimri)
-}, */
 
 export { postHeader, postFirsatlar, postSearch, postSearchSubCategory }
