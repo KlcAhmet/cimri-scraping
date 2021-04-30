@@ -18,7 +18,7 @@ const Header = props => {
                 for (let j = forIndex; j < forIndex + 10; j++) {
                     temp.push(
                         <NavDropdown.Item key={j} onClick={(e) => {
-                            //     cimriSearch.searchCimri(headerCimri.headerSubCategory[j].link.substring(1, headerCimri.headerSubCategory[j].link.length)) değişecek
+                            postSearch(headerCimri.headerSubCategory[j].link.substring(1, headerCimri.headerSubCategory[j].link.length))
                         }}
                         >{headerCimri.headerSubCategory[j].title}</NavDropdown.Item>
                     )
