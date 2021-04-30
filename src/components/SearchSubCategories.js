@@ -1,5 +1,5 @@
 import { ListGroup, Button } from 'react-bootstrap'
-import Post from '../service/Post'
+/* import Post from '../service/Post' */
 import store, { searchCimriSubCategoryLink } from '../store/index'
 
 function SearchSubCategories({ props }) {
@@ -8,7 +8,7 @@ function SearchSubCategories({ props }) {
         <ListGroup.Item>
             <Button onClick={() => {
                 store.dispatch(searchCimriSubCategoryLink(`https://www.cimri.com${props.categoryLink}`))
-                Post.postCimriSearcherSubCategory(`https://www.cimri.com${props.categoryLink}`)
+                /*  Post.postCimriSearcherSubCategory(`https://www.cimri.com${props.categoryLink}`)  değişecek */
             }}>
                 {props.categoryName}
                 <span>{props.categoryProductsCount}</span>
