@@ -60,7 +60,7 @@ router.route('/firsatlar').get((req, res) => {
     }
 })
 
-router.route('/search').get((req, res) => {
+router.route('/search').post((req, res) => {
     try {
         const link = req.body.searchLink
         const searchlink = cimriSearch.searchCimri(link)
