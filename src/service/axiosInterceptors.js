@@ -1,5 +1,6 @@
 import axios from "axios"
 import store, { firsatlar, searchCimri, headerCimri } from "../store/index"
+import { history } from "../map/UtilsMap"
 
 
 axios.interceptors.request.use(function (config) {
@@ -16,9 +17,7 @@ axios.interceptors.response.use(function (response) {
 
     if (response.data.success === true && response.data.type === "header") { store.dispatch(headerCimri(response.data.data)) }
     else if (response.data.success === true && response.data.type === "firsatlar") { store.dispatch(firsatlar(response.data.data)) }
-    else if (response.data.success === true && response.data.type === "search" && response.data.data === false) {
-        // event bus gelecek
-    }
+    else if (response.data.success === true && response.data.type === "search" && response.data.data === false) { history.push("/notfound") }
     else if (response.data.success === true && response.data.type === "search" && response.data !== null) { store.dispatch(searchCimri(response.data.data, response.config.url)) }
     else if (response.data.success === true && response.data.type === "subcategory") { store.dispatch(searchCimri(response.data.data, response.config.url)) }
 
