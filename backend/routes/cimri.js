@@ -11,6 +11,8 @@ router.route('/').get((req, res) => {
             // console.dir(Cimri.firsatlarCimri(response.data))
             const data = await Cimri.headerCimri(response.data)
             res.json({
+                success: true,
+                type: 'header',
                 data: data
             })
         })
@@ -25,6 +27,8 @@ router.route('/firsatlar').get((req, res) => {
         .then(async function (response) {
             const data = await Cimri.firsatlarCimri(response.data)
             res.json({
+                success: true,
+                type: 'firsatlar',
                 data: data
             })
         })
@@ -41,6 +45,8 @@ router.route('/search').get((req, res) => {
         .then(async function (response) {
             const data = Cimri.searchCimri(response.data, response.config.url)
             res.json({
+                success: true,
+                type: 'search',
                 data: data
             })
         })
@@ -56,6 +62,8 @@ router.route('/searchsub').get((req, res) => {
             const data = Cimri.searchCimri(response.data, response.config.url)
             console.log(response.config.url);
             res.json({
+                success: true,
+                type: 'subcategory',
                 data: data
             })
         })
