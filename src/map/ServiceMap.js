@@ -1,0 +1,1 @@
+export { postHeader, postFirsatlar, postSearch } from '../service/Post'
