@@ -1,5 +1,6 @@
 import axios from 'axios'
 import './axiosInterceptors'
+import { UserInfo } from '../map/ModelMap'
 
 const uri = process.env.REACT_APP_SERVER_URI
 const port = process.env.REACT_APP_PORT || 5000
@@ -72,4 +73,15 @@ function postGetUserInfo(id) {
     return axios.post(`${uri}${port}usersinfo/getuserinfo`, data, config)
 }
 
-export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postRegister, postLogin, postGetUserInfo }
+function postAddUserInfo(id) {
+    const temp = id.toString()
+    const data = new UserInfo(temp, "null", "null", "None", new Date().toISOString().slice(0, 10), "null", "null",)
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}usersinfo/add`, data, config)
+}
+
+export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postRegister, postLogin, postGetUserInfo, postAddUserInfo }
