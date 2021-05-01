@@ -2,17 +2,18 @@ import {
   Router, Switch, Route
 } from "react-router-dom";
 /* Map */
-import { Home, Header, ProductsPage, ProductNotFound } from './map/ComponentMap'
+import { Home, Header, ProductsPage, ProductNotFound, Login } from './map/ComponentMap'
 import { history,/*  EventBus, Const, */ } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 /* Sercive */
-import { postHeader } from './map/ServiceMap'
+/* import { postHeader } from './map/ServiceMap' */
 /* CSS */
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "@blueprintjs/core/lib/css/blueprint.css"
 /* On load */
-//postHeader()
+// postHeader()
 
 function App() {
   const SearchCimri = useSelector(state => state.searchCimri.link)
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/" component={Home} />
           {page}
           <Route path="/notfound" component={ProductNotFound} />
+          <Route path="/login" component={Login} />
         </Switch>
       </Router>
     </div >
