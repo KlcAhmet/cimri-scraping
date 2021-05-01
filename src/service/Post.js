@@ -29,9 +29,22 @@ function postSearchSubCategory(search) {
         headers: {
             'Content-Type': 'application/json',
         },
-    };
+    }
 
     return axios.post(`${uri}${port}cimri/searchsub`, data, config)
 }
 
-export { postHeader, postFirsatlar, postSearch, postSearchSubCategory }
+function postLogin(mail, password) {
+    const data = {
+        userMail: mail,
+        userPassword: password
+    }
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}users/signup`, data, config)
+}
+
+export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postLogin }
