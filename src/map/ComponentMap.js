@@ -12,5 +12,4 @@ export { default as SearchSubCategories } from "../components/SearchSubCategorie
 export { default as SearchPagesNumber } from "../components/SearchPagesNumber"
 /* Image */
 export { default as etiket } from "../image/etiket.svg"
-export { default as user } from "../image/user.svg"
 export { default as yuzde } from "../image/yuzde.svg"
