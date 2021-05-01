@@ -9,11 +9,8 @@ const User = props => {
         <div>
             <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    <div>
-                        <h6><Icon icon={IconNames.PERSON} iconSize={IconSize.LARGE} intent={Intent.PRIMARY} />ttest</h6>
-                    </div>
+                    <h6><Icon icon={IconNames.PERSON} iconSize={IconSize.LARGE} intent={Intent.PRIMARY} />ttest</h6>
                 </Dropdown.Toggle>
-
                 <Dropdown.Menu>
                     <Dropdown.Item >
                         <Button onClick={() => history.push('/login')} className="login-form-btn-giris buttons-btn bp3-button bp3-intent-success bp3-large bp3-fill" type="button">Giriş</Button>
