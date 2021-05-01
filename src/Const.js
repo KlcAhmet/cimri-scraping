@@ -19,4 +19,8 @@ exports.events = {
         type: 'loginUnsuccess',
         message: 'Email veya Şifre hatalı!',
     },
+    loginFirst: {
+        type: 'loginFirst',
+        message: '',
+    },
 }
