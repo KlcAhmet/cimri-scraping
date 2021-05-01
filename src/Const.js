@@ -7,4 +7,8 @@ exports.events = {
         type: 'allreadymail',
         message: 'Email kullanılmış!',
     },
+    registerSuccess: {
+        type: 'registerSuccess',
+        message: 'Kayıt başarılı. Giriş ekranına yönlendiriliyorsunuz.',
+    },
 }
