@@ -1,5 +1,6 @@
 /* import { useSelector } from "react-redux" */
 import { Container, Row, Col, ListGroup, Tab } from 'react-bootstrap'
+import { MyAccount } from '../map/ComponentMap'
 
 const ProtectedRoute = (props) => {
     /*  const Token = useSelector(state => state.Token) */
@@ -25,7 +26,7 @@ const ProtectedRoute = (props) => {
                             <Col sm={8}>
                                 <Tab.Content>
                                     <Tab.Pane eventKey="#hesap">
-                                        hesap
+                                        <MyAccount />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="#favori">
                                         favori
