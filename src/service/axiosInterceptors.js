@@ -31,6 +31,7 @@ axios.interceptors.response.use(function (response) {
     /* response false */
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
     else if (response.data.success === false && response.data.type === "login") { Events(Const.events.loginUnsuccess.type) }
+    else if (response.data.success === false && response.data.type === "userinfo") { Events(Const.events.loginFirst.type) }
 
     console.dir(response)
 
