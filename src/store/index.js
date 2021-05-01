@@ -7,7 +7,7 @@ import { loadState } from '../localStorage'
 // Actions
 export function login(event) {
     return async (dispatch) => {
-        const result = "await ...."
+        const result = event
         return await dispatch({
             type: 'login',
             result
@@ -62,7 +62,7 @@ export function headerCimri(event) {
 // Reducer
 const loginReducer = (state = [], actions) => {
     if (actions.type === "login") {
-        return actions
+        return actions.result
     }
     else {
         return state
