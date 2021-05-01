@@ -67,6 +67,27 @@ function Message() {
             "hideMethod": "fadeOut"
         })
     })
+
+    EventBus.addListener(Const.events.loginSuccess.type, () => {
+        toastr.clear()
+        toastr.success(Const.events.loginSuccess.message, 'Başarılı', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        })
+    })
 }
 
 export default Message
