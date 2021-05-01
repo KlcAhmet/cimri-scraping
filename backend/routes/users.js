@@ -29,7 +29,7 @@ router.route('/signup').post((req, res) => {
         newUser.save()
             .then(() => res.json({
                 type: 'register',
-                isSuccess: true,
+                success: true,
             }))
             .catch(function (error) {
                 res.json({
@@ -61,14 +61,14 @@ router.route('/signin').get((req, res) => {
                 if (response.length) {
                     res.json({
                         type: 'login',
-                        isSuccess: true,
+                        success: true,
                         response: response[0]
                     })
                 }
                 else {
                     res.json({
                         type: 'login',
-                        isSuccess: false,
+                        success: false,
                         response: null
                     }
                     )
@@ -99,7 +99,7 @@ router.route('/changepassword/:id').post((req, res) => {
                 response.userPassword = userPassword
                 res.json({
                     type: 'changepassword',
-                    isSuccess: true,
+                    success: true,
                 })
                 response.save()
             })
@@ -127,14 +127,14 @@ router.route('/:id').delete((req, res) => {
                 if (response === null) {
                     res.json({
                         type: 'userdelete',
-                        isSuccess: false,
+                        success: false,
                         response: "Kullanıcı bulunamadı"
                     })
                 }
                 else {
                     res.json({
                         type: 'userdelete',
-                        isSuccess: true,
+                        success: true,
                         response: response
                     })
                 }
