@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const userInfo = new Schema({
     userID: {
-        type: Number,
+        type: String,
         required: true,
         unique: true,
         trim: true,
@@ -22,7 +22,7 @@ const userInfo = new Schema({
         maxlength: 25,
     },
     gender: {
-        type: Number,
+        type: String,
         required: true,
     },
     birth: {
