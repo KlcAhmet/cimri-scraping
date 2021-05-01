@@ -2,7 +2,7 @@ import { Container, Row, Tabs, Tab, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { Button, FormGroup, InputGroup } from "@blueprintjs/core"
 import { equalpasswords, Events, Const, EventBus } from '../map/UtilsMap'
-import { postLogin } from '../map/ServiceMap'
+import { postRegister, postLogin } from '../map/ServiceMap'
 
 
 const Login = props => {
@@ -11,10 +11,11 @@ const Login = props => {
         <Container>
             <Row>
                 <Col>
-                    <Tabs defaultActiveKey="uyeol" id="uncontrolled-tab-example">
+                    <Tabs defaultActiveKey="giris" id="uncontrolled-tab-example">
                         <Tab eventKey="giris" title="Giriş Yap">
                             <form onSubmit={(e) => {
                                 e.preventDefault();
+                                postLogin(e.target[0].value, e.target[1].value)
                             }}>
                                 <FormGroup className="login-form-group" label="Email" labelFor="text-email" labelInfo="(Zorunlu)">
                                     <InputGroup type="email" id="text-email" placeholder="deneme@deneme.com" defaultValue="deneme@deneme.com" required />
@@ -32,7 +33,7 @@ const Login = props => {
                             <form onSubmit={(e) => {
                                 e.preventDefault();
                                 if (equalpasswords(e.target[1].value, e.target[2].value)) {
-                                    postLogin(e.target[0].value, e.target[1].value)
+                                    postRegister(e.target[0].value, e.target[1].value)
                                 }
                                 else {
                                     Events(Const.events.wrongpassword.type)
