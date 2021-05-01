@@ -47,7 +47,7 @@ router.route('/signup').post((req, res) => {
     }
 })
 
-router.route('/signin').get((req, res) => {
+router.route('/signin').post((req, res) => {
     try {
         const userMail = req.body.userMail
         const userPassword = req.body.userPassword
