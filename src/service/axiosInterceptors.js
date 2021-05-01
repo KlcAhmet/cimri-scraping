@@ -21,9 +21,11 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === true && response.data.type === "search" && response.data !== null) { store.dispatch(searchCimri(response.data.data, response.config.url)) }
     else if (response.data.success === true && response.data.type === "subcategory") { store.dispatch(searchCimri(response.data.data, response.config.url)) }
     else if (response.data.success === true && response.data.type === "register") { Events(Const.events.registerSuccess.type) }
+    else if (response.data.success === true && response.data.type === "login") {  /* Events(Const.events.registerSuccess.type) */ }
 
     /* response false */
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
+    else if (response.data.success === false && response.data.type === "login") { /* Events(Const.events.allreadymail.type) */ }
 
     console.dir(response)
 
