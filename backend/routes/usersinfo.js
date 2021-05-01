@@ -55,7 +55,7 @@ router.route('/add').post((req, res) => {
     }
 })
 
-router.route('/getuserinfo').get((req, res) => {
+router.route('/getuserinfo').post((req, res) => {
     try {
         const userID = req.body.userID
 
