@@ -2,7 +2,7 @@ import {
   Router, Switch, Route
 } from "react-router-dom";
 /* Map */
-import { Home, Header, ProductsPage, ProductNotFound, Login } from './map/ComponentMap'
+import { Home, Header, ProductsPage, ProductNotFound, Login, ProtectedAccount } from './map/ComponentMap'
 import { history,/*  EventBus, Const, */Message } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux"
@@ -45,6 +45,7 @@ function App() {
           {page}
           <Route path="/notfound" component={ProductNotFound} />
           <Route path="/login" component={Login} />
+          <Route path="/uyelik/hesabım" component={ProtectedAccount} />
         </Switch>
       </Router>
     </div >
