@@ -1,10 +1,6 @@
 exports.events = {
-    SearchNotFound: {
-        type: 'searchNotFound',
-        message: 'Ürün Bulunamadı',
+    wrongpassword: {
+        type: 'wrongpassword',
+        message: 'Şifreler eşleşmiyor!',
     },
-    SaveSearchLink: {
-        type: 'localStorageSave'
-    }
-
 }
