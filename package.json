@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@blueprintjs/core": "^3.44.1",
         "axios": "^0.21.1",
         "bootstrap": "^4.6.0",
         "cheerio": "*",
