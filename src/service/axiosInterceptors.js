@@ -1,6 +1,7 @@
 import axios from "axios"
-import store, { firsatlar, searchCimri, headerCimri } from "../store/index"
+import store, { firsatlar, searchCimri, headerCimri, login } from "../store/index"
 import { history, Events, Const } from "../map/UtilsMap"
+import { User } from "../map/ModelMap"
 
 
 axios.interceptors.request.use(function (config) {
@@ -21,11 +22,15 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === true && response.data.type === "search" && response.data !== null) { store.dispatch(searchCimri(response.data.data, response.config.url)) }
     else if (response.data.success === true && response.data.type === "subcategory") { store.dispatch(searchCimri(response.data.data, response.config.url)) }
     else if (response.data.success === true && response.data.type === "register") { Events(Const.events.registerSuccess.type) }
-    else if (response.data.success === true && response.data.type === "login") {  /* Events(Const.events.registerSuccess.type) */ }
+    else if (response.data.success === true && response.data.type === "login") {
+        const model = new User(response.data.response['_id'], response.data.response.userMail, response.data.response.userPassword)
+        store.dispatch(login(model))
+        Events(Const.events.loginSuccess.type)
+    }
 
     /* response false */
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
-    else if (response.data.success === false && response.data.type === "login") { /* Events(Const.events.allreadymail.type) */ }
+    else if (response.data.success === false && response.data.type === "login") { Events(Const.events.loginUnsuccess.type) }
 
     console.dir(response)
 
