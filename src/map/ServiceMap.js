@@ -1,1 +1,1 @@
-export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postRegister, postLogin } from '../service/Post'
+export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postRegister, postLogin, postGetUserInfo } from '../service/Post'

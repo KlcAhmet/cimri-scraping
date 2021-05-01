@@ -60,4 +60,16 @@ function postLogin(mail, password) {
     return axios.post(`${uri}${port}users/signin`, data, config)
 }
 
-export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postRegister, postLogin }
+function postGetUserInfo(id) {
+    const data = {
+        userID: id,
+    }
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}usersinfo/getuserinfo`, data, config)
+}
+
+export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postRegister, postLogin, postGetUserInfo }
