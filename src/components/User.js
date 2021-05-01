@@ -2,6 +2,7 @@ import { Dropdown } from 'react-bootstrap'
 import { Button, Icon, IconSize, Intent } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons";
 import { history } from '../map/UtilsMap'
+import { Link } from 'react-router-dom';
 
 const User = props => {
 
@@ -16,10 +17,10 @@ const User = props => {
                         <Button onClick={() => history.push('/login')} className="login-form-btn-giris buttons-btn bp3-button bp3-intent-success bp3-large bp3-fill" type="button">Giriş</Button>
                     </Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item href="uyelik/hesabım">Hesabım</Dropdown.Item>
-                    <Dropdown.Item href="uyelik/favorilerim">Favorilerim</Dropdown.Item>
-                    <Dropdown.Item href="uyelik/fiyatalarm">Fiyat Alarmı</Dropdown.Item>
-                    <Dropdown.Item href="/cikis">Çıkış</Dropdown.Item>
+                    <Dropdown.Item><Link className="login-forgotpassword" to="/uyelik/hesabım">Hesabım</Link></Dropdown.Item>
+                    <Dropdown.Item><Link className="login-forgotpassword" to="/uyelik/favorilerim">Favorilerim</Link></Dropdown.Item>
+                    <Dropdown.Item><Link className="login-forgotpassword" to="/uyelik/fiyatalarm">Fiyat Alarmı</Link></Dropdown.Item>
+                    <Dropdown.Item><Link className="login-forgotpassword" to="/cikis">Çıkış</Link></Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
 
