@@ -6,3 +6,5 @@ export { Events } from "../utils/Event Bus/EventBusEvents"
 export { default as Const } from "../Const"
 /* login-register */
 export { equalpasswords } from '../utils/login/registerpassword'
+/* toastr message */
+export { default as Message } from "../utils/Message/Message"
