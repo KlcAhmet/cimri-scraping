@@ -3,17 +3,20 @@ import {
 } from "react-router-dom";
 /* Map */
 import { Home, Header, ProductsPage, ProductNotFound, Login } from './map/ComponentMap'
-import { history,/*  EventBus, Const, */ } from './map/UtilsMap'
+import { history,/*  EventBus, Const, */Message } from './map/UtilsMap'
 /* Components */
-import { useSelector } from "react-redux";
-import { useEffect, useState } from 'react';
+import { useSelector } from "react-redux"
+import { useEffect, useState } from 'react'
 /* Sercive */
 /* import { postHeader } from './map/ServiceMap' */
 /* CSS */
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import "@blueprintjs/core/lib/css/blueprint.css"
+import "toastr/build/toastr.min.css"
 /* On load */
 // postHeader()
+Message()
+
 
 function App() {
   const SearchCimri = useSelector(state => state.searchCimri.link)
