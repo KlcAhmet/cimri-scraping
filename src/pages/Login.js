@@ -1,7 +1,7 @@
 import { Container, Row, Tabs, Tab, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { Button, FormGroup, InputGroup } from "@blueprintjs/core"
-import { equalpasswords } from '../map/UtilsMap'
+import { equalpasswords, Events, Const } from '../map/UtilsMap'
 import { postLogin } from '../map/ServiceMap'
 
 
@@ -37,7 +37,7 @@ const Login = props => {
                                     postLogin(e.target[0].value, e.target[1].value)
                                 }
                                 else {
-                                    // 2 pasaport eşleşmiyor
+                                    Events(Const.events.wrongpassword.type)
                                 }
 
                             }}>
