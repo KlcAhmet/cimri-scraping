@@ -22,7 +22,7 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     try {
-        const userID = Number(req.body.userID)
+        const userID = String(req.body.userID)
         const favorite = req.body.favorite
         const priceAlarm = req.body.priceAlarm
 
@@ -42,6 +42,7 @@ router.route('/add').post((req, res) => {
                 })
             })
     } catch (error) {
+        console.dir(error.message)
         res.json({
             success: false,
             type: 'productadd',
