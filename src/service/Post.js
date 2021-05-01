@@ -34,7 +34,7 @@ function postSearchSubCategory(search) {
     return axios.post(`${uri}${port}cimri/searchsub`, data, config)
 }
 
-function postLogin(mail, password) {
+function postRegister(mail, password) {
     const data = {
         userMail: mail,
         userPassword: password
@@ -47,4 +47,17 @@ function postLogin(mail, password) {
     return axios.post(`${uri}${port}users/signup`, data, config)
 }
 
-export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postLogin }
+function postLogin(mail, password) {
+    const data = {
+        userMail: mail,
+        userPassword: password
+    }
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}users/signin`, data, config)
+}
+
+export { postHeader, postFirsatlar, postSearch, postSearchSubCategory, postRegister, postLogin }
