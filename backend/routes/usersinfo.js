@@ -37,7 +37,7 @@ router.route('/add').post((req, res) => {
         newUserInfo.save()
             .then(() => res.json({
                 type: 'infoadd',
-                isSuccess: true,
+                success: true,
             }))
             .catch(function (error) {
                 res.json({
@@ -67,7 +67,7 @@ router.route('/getuserinfo').get((req, res) => {
                 if (response.length) {
                     res.json({
                         type: 'userinfo',
-                        isSuccess: true,
+                        success: true,
                         response: response[0]
                     })
                 }
@@ -75,7 +75,7 @@ router.route('/getuserinfo').get((req, res) => {
                     res.json(
                         {
                             type: 'userinfo',
-                            isSuccess: false,
+                            success: false,
                             response: null
                         }
                     )
@@ -118,7 +118,7 @@ router.route('/changeuserinfo/:id').post((req, res) => {
 
                 res.json({
                     type: 'changeuserinfo',
-                    isSuccess: true,
+                    success: true,
                 })
                 response.save()
             })
@@ -144,7 +144,7 @@ router.route('/:id').delete((req, res) => {
             .then((response) => {
                 res.json({
                     type: 'userinfodelete',
-                    isSuccess: true,
+                    success: true,
                 })
             })
             .catch(function (error) {

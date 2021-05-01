@@ -32,7 +32,7 @@ router.route('/add').post((req, res) => {
         newUserProduct.save()
             .then(() => res.json({
                 type: 'productadd',
-                isSuccess: true,
+                success: true,
             }))
             .catch(function (error) {
                 res.json({
@@ -62,7 +62,7 @@ router.route('/getproducts/').get((req, res) => {
                 if (response.length) {
                     res.json({
                         type: 'productinfo',
-                        isSuccess: true,
+                        success: true,
                         response: response[0]
                     })
                 }
@@ -70,7 +70,7 @@ router.route('/getproducts/').get((req, res) => {
                     res.json(
                         {
                             type: 'productinfo',
-                            isSuccess: false,
+                            success: false,
                             response: null
                         }
                     )
@@ -104,7 +104,7 @@ router.route('/changeproduct/:id').post((req, res) => {
 
                 res.json({
                     type: 'changeproducts',
-                    isSuccess: true,
+                    success: true,
                 })
                 response.save()
             })
@@ -131,14 +131,14 @@ router.route('/:id').delete((req, res) => {
                 if (response === null) {
                     res.json({
                         type: 'productdelete',
-                        isSuccess: false,
+                        success: false,
                         response: response,
                     })
                 }
                 else {
                     res.json({
                         type: 'productdelete',
-                        isSuccess: true,
+                        success: true,
                         response: response
                     })
                 }
