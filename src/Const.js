@@ -3,4 +3,8 @@ exports.events = {
         type: 'wrongpassword',
         message: 'Şifreler eşleşmiyor!',
     },
+    allreadymail: {
+        type: 'allreadymail',
+        message: 'Email kullanılmış!',
+    },
 }
