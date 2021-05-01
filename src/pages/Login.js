@@ -1,13 +1,11 @@
 import { Container, Row, Tabs, Tab, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { Button, FormGroup, InputGroup } from "@blueprintjs/core"
-import { equalpasswords, Events, Const } from '../map/UtilsMap'
+import { equalpasswords, Events, Const, EventBus } from '../map/UtilsMap'
 import { postLogin } from '../map/ServiceMap'
 
 
 const Login = props => {
-
-
 
     return (
         <Container>
@@ -62,5 +60,12 @@ const Login = props => {
         </Container>
     )
 }
+
+
+EventBus.addListener(Const.events.registerSuccess.type, () => {
+    setTimeout(function () {
+        window.location.reload()
+    }, 2800);
+})
 
 export default Login
