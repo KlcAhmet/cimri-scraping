@@ -32,11 +32,13 @@ axios.interceptors.response.use(function (response) {
         Events(Const.events.loginSuccess.type)
     }
     else if (response.data.success === true && response.data.type === "userinfo") { /* store gelecek */ }
+    else if (response.data.success === true && response.data.type === "productAdd") { console.log("productAdd true"); }
 
     /* response false */
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
     else if (response.data.success === false && response.data.type === "login") { Events(Const.events.loginUnsuccess.type) }
     else if (response.data.success === false && response.data.type === "userinfo") { Events(Const.events.loginFirst.type) }
+    else if (response.data.success === false && response.data.type === "productAdd") { console.log("productAdd false"); }
 
     console.dir(response)
 
