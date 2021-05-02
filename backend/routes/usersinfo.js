@@ -27,7 +27,7 @@ router.route('/add').post((req, res) => {
         const name = req.body.name
         const surname = req.body.surname
         const gender = String(req.body.gender)
-        const birth = Date(req.body.birth)
+        const birth = String(req.body.birth)
         const city = req.body.city
         const address = req.body.address
 
@@ -103,7 +103,7 @@ router.route('/changeuserinfo/:id').post((req, res) => {
         const name = req.body.name
         const surname = req.body.surname
         const gender = String(req.body.gender)
-        const birth = Date(req.body.birth)
+        const birth = String(req.body.birth)
         const city = req.body.city
         const address = req.body.address
 

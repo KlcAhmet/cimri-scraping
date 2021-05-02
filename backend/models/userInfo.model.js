@@ -26,7 +26,7 @@ const userInfo = new Schema({
         required: true,
     },
     birth: {
-        type: Date,
+        type: String,
     },
     city: {
         type: String,
