@@ -1,7 +1,8 @@
 import axios from "axios"
-import store, { firsatlar, searchCimri, headerCimri, login } from "../store/index"
+import store, { firsatlar, searchCimri, headerCimri, login, UserInfo } from "../store/index"
 import { history, Events, Const } from "../map/UtilsMap"
-import { UserModel } from "../map/ModelMap"
+import { postGetUserInfo } from "../map/ServiceMap"
+import { UserModel, UserInfoModel } from "../map/ModelMap"
 
 
 /* axios.interceptors.request.use(function (config) {
@@ -31,14 +32,26 @@ axios.interceptors.response.use(function (response) {
         store.dispatch(login(UserModel.User))
         Events(Const.events.loginSuccess.type)
     }
-    else if (response.data.success === true && response.data.type === "userinfo") { /* store gelecek */ }
-    else if (response.data.success === true && response.data.type === "productAdd") { console.log("productAdd true"); }
+    else if (response.data.success === true && response.data.type === "infoadd") { postGetUserInfo(store.getState().User.id) }
+    else if (response.data.success === true && response.data.type === "userinfo") {
+        UserInfoModel.UserInfo = {
+            userID: response.data.response['_id'],
+            name: response.data.response.name,
+            surname: response.data.response.surname,
+            gender: response.data.response.gender,
+            birth: response.data.response.birth,
+            city: response.data.response.city,
+            address: response.data.response.address
+        }
+        store.dispatch(UserInfo(UserInfoModel.UserInfo))
+    }
+    else if (response.data.success === true && response.data.type === "productadd") { console.log("productAdd true"); }
 
     /* response false */
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
     else if (response.data.success === false && response.data.type === "login") { Events(Const.events.loginUnsuccess.type) }
     else if (response.data.success === false && response.data.type === "userinfo") { Events(Const.events.loginFirst.type) }
-    else if (response.data.success === false && response.data.type === "productAdd") { console.log("productAdd false"); }
+    else if (response.data.success === false && response.data.type === "productadd") { console.log("productAdd false"); }
 
     console.dir(response)
 
