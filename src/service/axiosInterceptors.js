@@ -35,7 +35,8 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === true && response.data.type === "infoadd") { postGetUserInfo(store.getState().User.id) }
     else if (response.data.success === true && response.data.type === "userinfo") {
         UserInfoModel.UserInfo = {
-            userID: response.data.response['_id'],
+            id: response.data.response['_id'],
+            userID: response.data.response.userID,
             name: response.data.response.name,
             surname: response.data.response.surname,
             gender: response.data.response.gender,
@@ -47,6 +48,7 @@ axios.interceptors.response.use(function (response) {
     }
     else if (response.data.success === true && response.data.type === "productadd") { console.log("productAdd true"); }
     else if (response.data.success === true && response.data.type === "productinfo") { console.log("productinfo true"); }
+    else if (response.data.success === true && response.data.type === "changeuserinfo") { console.log("changeuserinfo true"); }
 
     /* response false */
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
@@ -54,6 +56,7 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === false && response.data.type === "userinfo") { Events(Const.events.loginFirst.type) }
     else if (response.data.success === false && response.data.type === "productadd") { console.log("productAdd false"); }
     else if (response.data.success === false && response.data.type === "productinfo") { console.log("productinfo false"); }
+    else if (response.data.success === false && response.data.type === "changeuserinfo") { console.log("changeuserinfo false"); }
 
     console.dir(response)
 
