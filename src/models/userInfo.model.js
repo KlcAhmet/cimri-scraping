@@ -6,7 +6,15 @@ const UserInfo = {
     birth: Date,
     city: String,
     address: String
-
 }
 
-export default UserInfo
+const UserInfoUpdate = {
+    name: String,
+    surname: String,
+    gender: String,
+    birth: Date,
+    city: String,
+    address: String
+}
+
+export default { UserInfo, UserInfoUpdate }
