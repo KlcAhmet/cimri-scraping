@@ -23,4 +23,8 @@ exports.events = {
         type: 'loginFirst',
         message: '',
     },
+    productAdd: {
+        type: 'productadd',
+        message: '',
+    },
 }
