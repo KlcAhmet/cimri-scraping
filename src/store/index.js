@@ -15,6 +15,16 @@ export function login(event) {
     }
 }
 
+export function UserInfo(event) {
+    return async (dispatch) => {
+        const result = event
+        return await dispatch({
+            type: 'userInfo',
+            result
+        })
+    }
+}
+
 export function firsatlar(event) {
     return async (dispatch) => {
         const result = await event
@@ -69,6 +79,15 @@ const loginReducer = (state = [], actions) => {
     }
 }
 
+const userInfoReducer = (state = [], actions) => {
+    if (actions.type === "userInfo") {
+        return actions.result
+    }
+    else {
+        return state
+    }
+}
+
 const firsatlarReducer = (state = [], actions) => {
     if (actions.type === "firsatlar") {
         return actions.result
@@ -109,6 +128,7 @@ const headerCimriReducer = (state = [], actions) => {
 // Loaders
 const initialState = {
     User: {},
+    UserInfo: {},
     /* Token: null, */
     CimriFirsatlar: {},
     searchCimri: {},
@@ -118,6 +138,7 @@ const persistedState = loadState(initialState);
 
 export const allReducers = combineReducers({
     User: loginReducer,
+    UserInfo: userInfoReducer,
     CimriFirsatlar: firsatlarReducer,
     searchCimri: searchCimriReducer,
     searchCimriSubCategoryLink: searchCimriSubCategoryLinkReducer,
