@@ -50,7 +50,7 @@ router.route('/add').post((req, res) => {
     }
 })
 
-router.route('/getproducts/').get((req, res) => {
+router.route('/getproducts/').post((req, res) => {
     try {
         const userID = req.body.userID
 
