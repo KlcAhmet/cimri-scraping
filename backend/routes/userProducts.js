@@ -42,7 +42,6 @@ router.route('/add').post((req, res) => {
                 })
             })
     } catch (error) {
-        console.dir(error.message)
         res.json({
             success: false,
             type: 'productadd',
