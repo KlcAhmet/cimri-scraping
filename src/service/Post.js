@@ -1,6 +1,7 @@
 import axios from 'axios'
 import './axiosInterceptors'
 import { UserInfoModel, UserProductsModel } from '../map/ModelMap'
+import store from '../store/index'
 
 const uri = process.env.REACT_APP_SERVER_URI
 const port = process.env.REACT_APP_PORT || 5000
@@ -117,7 +118,20 @@ function postAddUserProducts(id) {
     return axios.post(`${uri}${port}userproducts/add`, body, config)
 }
 
+function postUserInfoUpdate(body) {
+    const UserInfoId = store.getState().UserInfo.id
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}usersinfo/changeuserinfo/${UserInfoId}`, body, config)
+}
+
+
+
 export {
     postHeader, postFirsatlar, postSearch, postSearchSubCategory,
-    postRegister, postLogin, postGetUserInfo, postAddUserInfo, postAddUserProducts, postGetUserProduct
+    postRegister, postLogin, postGetUserInfo, postAddUserInfo, postAddUserProducts, postGetUserProduct,
+    postUserInfoUpdate,
 }
