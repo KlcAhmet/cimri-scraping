@@ -3,7 +3,8 @@ export { default as history } from "../utils/history"
 export { default as EventBus } from "../utils/Event Bus/EventBus"
 export { Events } from "../utils/Event Bus/EventBusEvents"
 /* Consts */
-export { default as Const } from "../Const"
+export { default as Const } from "../Consts/Const"
+export { default as City } from "../Consts/City"
 /* login-register */
 export { equalpasswords } from '../utils/login/registerpassword'
 /* toastr message */
