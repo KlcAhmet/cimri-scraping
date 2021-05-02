@@ -1,17 +1,28 @@
-class priceAlarm {
-    constructor(productLink, productImageSrc, productTitle, productPrice) {
-        this.productLink = String(productLink)
-        this.productImageSrc = String(productImageSrc)
-        this.productTitle = String(productTitle)
-        this.productPrice = String(productPrice)
-    }
+const priceAlarm = {
+    productLink: String,
+    productImageSrc: String,
+    productTitle: String,
+    productPrice: String,
 }
 
-class UserProducts {
-    constructor(userID, [priceAlarm]) {
-        this.userID = String(userID)
-        this.priceAlarm = new priceAlarm(priceAlarm)
-    }
+const favoriteOffers = {
+    offerLink: String,
+    offerName: String,
+    offerPrice: String
 }
 
-export default UserProducts
+const favorite = {
+    productLink: String,
+    productImageSrc: String,
+    productTitle: String,
+    offers: [favoriteOffers]
+}
+
+const UserProducts = {
+    userID: String,
+    favorite: [favorite],
+    priceAlarm: [priceAlarm]
+
+}
+
+export default { UserProducts, priceAlarm, favoriteOffers, favorite }
