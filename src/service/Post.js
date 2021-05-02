@@ -73,6 +73,18 @@ function postGetUserInfo(id) {
     return axios.post(`${uri}${port}usersinfo/getuserinfo`, data, config)
 }
 
+function postGetUserProduct(id) {
+    const data = {
+        userID: id,
+    }
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}userproducts/getproducts`, data, config)
+}
+
 function postAddUserInfo(id) {
     const body = UserInfoModel.UserInfo = {
         userID: id,
@@ -107,5 +119,5 @@ function postAddUserProducts(id) {
 
 export {
     postHeader, postFirsatlar, postSearch, postSearchSubCategory,
-    postRegister, postLogin, postGetUserInfo, postAddUserInfo, postAddUserProducts
+    postRegister, postLogin, postGetUserInfo, postAddUserInfo, postAddUserProducts, postGetUserProduct
 }

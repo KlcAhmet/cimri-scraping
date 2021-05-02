@@ -46,12 +46,14 @@ axios.interceptors.response.use(function (response) {
         store.dispatch(UserInfo(UserInfoModel.UserInfo))
     }
     else if (response.data.success === true && response.data.type === "productadd") { console.log("productAdd true"); }
+    else if (response.data.success === true && response.data.type === "productinfo") { console.log("productinfo true"); }
 
     /* response false */
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
     else if (response.data.success === false && response.data.type === "login") { Events(Const.events.loginUnsuccess.type) }
     else if (response.data.success === false && response.data.type === "userinfo") { Events(Const.events.loginFirst.type) }
     else if (response.data.success === false && response.data.type === "productadd") { console.log("productAdd false"); }
+    else if (response.data.success === false && response.data.type === "productinfo") { console.log("productinfo false"); }
 
     console.dir(response)
 
