@@ -1,9 +1,7 @@
-class User {
-    constructor(id, userMail, userPassword) {
-        this.id = String(id)
-        this.userMail = String(userMail)
-        this.userPassword = String(userPassword)
-    }
+const User = {
+    id: String,
+    userMail: String,
+    userPassword: String
 }
 
 export default User

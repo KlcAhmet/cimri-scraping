@@ -1,7 +1,7 @@
 import axios from "axios"
 import store, { firsatlar, searchCimri, headerCimri, login } from "../store/index"
 import { history, Events, Const } from "../map/UtilsMap"
-import { User } from "../map/ModelMap"
+import { UserModel } from "../map/ModelMap"
 
 
 /* axios.interceptors.request.use(function (config) {
@@ -23,8 +23,12 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === true && response.data.type === "subcategory") { store.dispatch(searchCimri(response.data.data, response.config.url)) }
     else if (response.data.success === true && response.data.type === "register") { Events(Const.events.registerSuccess.type) }
     else if (response.data.success === true && response.data.type === "login") {
-        const model = new User(response.data.response['_id'], response.data.response.userMail, response.data.response.userPassword)
-        store.dispatch(login(model))
+        UserModel.User = {
+            id: response.data.response['_id'],
+            userMail: response.data.response.userMail,
+            userPassword: response.data.response.userPassword
+        }
+        store.dispatch(login(UserModel.User))
         Events(Const.events.loginSuccess.type)
     }
     else if (response.data.success === true && response.data.type === "userinfo") { /* store gelecek */ }
