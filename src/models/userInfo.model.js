@@ -12,7 +12,7 @@ const UserInfoUpdate = {
     name: String,
     surname: String,
     gender: String,
-    birth: Date,
+    birth: String,
     city: String,
     address: String
 }
