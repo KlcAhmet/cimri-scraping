@@ -1,6 +1,13 @@
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap'
+import { useState } from 'react';
+import { likered, likeblack } from '../map/ComponentMap'
+import { Events, Const } from "../map/UtilsMap"
 
 function SearchCard({ props }) {
+    const [like, setlike] = useState({
+        id: "black",
+        img: likeblack
+    })
     let offerArr = []
 
     props.productTopOffers.forEach((item, index) => {
@@ -14,7 +21,18 @@ function SearchCard({ props }) {
     })
 
     return (
-        <Card className="SeachCard" style={{ width: '18rem' }} onClick={() => { window.location.href = props.productLink }}>
+        <Card className="SeachCard" style={{ width: '18rem' }} /* onClick={() => { window.location.href = props.productLink }} */>
+            <div>
+                <Button variant="outline-primary" type="button" onClick={(e) => {
+                    setlike(((like.id === 'black') ? { id: 'red', img: likered } : { id: 'black', img: likeblack }))
+                    if (like.id === 'black') {
+                        Events(Const.events.productLike.type, props)
+                    }
+                    else {
+                        Events(Const.events.productUnlike.type, props)
+                    }
+                }}><img style={{ width: 20, zIndex: 2 }} src={like.img} alt="like" /></Button>
+            </div>
             <Card.Img className="SeachCard-topImg" variant="top" src={props.productImageSrc} />
             <Card.Body className="SeachCard-body">
                 <Card.Title className="SeachCard-title">{props.productTitle}</Card.Title>
