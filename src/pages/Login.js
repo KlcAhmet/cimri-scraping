@@ -21,7 +21,7 @@ const Login = props => {
                                     <InputGroup type="email" id="text-email" placeholder="deneme@deneme.com" defaultValue="deneme@deneme.com" required />
                                 </FormGroup>
                                 <FormGroup className="login-form-group" label="Şifre" labelFor="text-password" labelInfo="(Zorunlu)">
-                                    <InputGroup type="password" id="text-password" placeholder="*******" pattern=".{8,}" defaultValue="123456" required />
+                                    <InputGroup type="password" id="text-password" placeholder="*******" pattern=".{6,}" defaultValue="123456" required />
                                 </FormGroup>
                                 <div className="login-form-btn">
                                     <Button className="login-form-btn-giris buttons-btn bp3-button bp3-intent-success bp3-large bp3-fill" type="submit">Giriş</Button>
