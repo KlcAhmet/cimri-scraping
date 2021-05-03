@@ -8,7 +8,7 @@ const ProtectedRoute = (props) => {
         if (true) {
             return (
                 <Container>
-                    <Tab.Container id="list-group-tabs-example" defaultActiveKey="#hesap">
+                    <Tab.Container id="list-group-tabs-example" defaultActiveKey={window.location.hash} >
                         <Row>
                             <Col sm={4}>
                                 <ListGroup>

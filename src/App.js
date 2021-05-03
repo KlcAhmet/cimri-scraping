@@ -46,7 +46,7 @@ function App() {
           {page}
           <Route path="/notfound" component={ProductNotFound} />
           <Route path="/login" component={Login} />
-          <Route path="/uyelik/hesabım" component={ProtectedAccount} />
+          <Route path="/uyelik/hesabim" component={ProtectedAccount} />
         </Switch>
       </Router>
     </div >
