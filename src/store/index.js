@@ -75,11 +75,21 @@ export function headerCimri(event) {
     }
 }
 
-export function productFavoriteUpdate(event) {
+export function productFavoriteAdd(event) {
     return async (dispatch) => {
         const result = event
         return await dispatch({
-            type: 'productFavoriteUpdate',
+            type: 'productFavoriteAdd',
+            result
+        })
+    }
+}
+
+export function productFavoriteRemove(event) {
+    return async (dispatch) => {
+        const result = event
+        return await dispatch({
+            type: 'productFavoriteRemove',
             result
         })
     }
@@ -111,10 +121,16 @@ const userProductsReducer = (state = [], actions) => {
     if (actions.type === "userProducts") {
         return actions.result
     }
-    if (actions.type === "productFavoriteUpdate") {
+    else if (actions.type === "productFavoriteAdd") {
         return {
             ...state,
             favorite: [...state.favorite, actions.result]
+        }
+    }
+    else if (actions.type === "productFavoriteRemove") {
+        return {
+            ...state,
+            favorite: actions.result
         }
     }
     else {
