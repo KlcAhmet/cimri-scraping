@@ -45,11 +45,11 @@ const Login = props => {
                                 </FormGroup>
                                 <FormGroup className="login-form-group" label="Şifre" labelFor="text-password-register" labelInfo="(Zorunlu)">
                                     <InputGroup type="password" id="text-password-register" pattern=".{6,}" placeholder="*******" autoComplete="new-password" required />
-                                    <div class="bp3-form-helper-text">Şifreniz en az 6 karakter uzunluğunda olmalı.</div>
+                                    <div className="bp3-form-helper-text">Şifreniz en az 6 karakter uzunluğunda olmalı.</div>
                                 </FormGroup>
                                 <FormGroup className="login-form-group" label="Şifre Tekrar" labelFor="text-password-register2" labelInfo="(Zorunlu)">
                                     <InputGroup type="password" id="text-password-register2" pattern=".{6,}" placeholder="*******" autoComplete="new-password" required />
-                                    <div class="bp3-form-helper-text">Şifreniz en az 6 karakter uzunluğunda olmalı.</div>
+                                    <div className="bp3-form-helper-text">Şifreniz en az 6 karakter uzunluğunda olmalı.</div>
                                 </FormGroup>
                                 <div className="login-form-btn">
                                     <Button className="login-form-btn-kaydol buttons-btn bp3-button bp3-intent-primary bp3-large bp3-fill" type="submit">Kaydol</Button>
