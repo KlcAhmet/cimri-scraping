@@ -1,8 +1,8 @@
 import axios from "axios"
-import store, { firsatlar, searchCimri, headerCimri, login, UserInfo } from "../store/index"
+import store, { firsatlar, searchCimri, headerCimri, login, UserInfo, UserProducts } from "../store/index"
 import { history, Events, Const } from "../map/UtilsMap"
-import { postGetUserInfo } from "../map/ServiceMap"
-import { UserModel, UserInfoModel } from "../map/ModelMap"
+import { postGetUserInfo, postGetUserProduct } from "../map/ServiceMap"
+import { UserModel, UserInfoModel, UserProductsModel } from "../map/ModelMap"
 
 
 /* axios.interceptors.request.use(function (config) {
@@ -46,8 +46,16 @@ axios.interceptors.response.use(function (response) {
         }
         store.dispatch(UserInfo(UserInfoModel.UserInfo))
     }
-    else if (response.data.success === true && response.data.type === "productadd") { console.log("productAdd true"); }
-    else if (response.data.success === true && response.data.type === "productinfo") { console.log("productinfo true"); }
+    else if (response.data.success === true && response.data.type === "productadd") { postGetUserProduct(store.getState().User.id) }
+    else if (response.data.success === true && response.data.type === "productinfo") {
+        UserProductsModel.UserProducts = {
+            id: response.data.response['_id'],
+            userID: response.data.response.userID,
+            favorite: response.data.response.favorite,
+            priceAlarm: response.data.response.priceAlarm
+        }
+        store.dispatch(UserProducts(UserProductsModel.UserProducts))
+    }
     else if (response.data.success === true && response.data.type === "changeuserinfo") { console.log("changeuserinfo true"); }
 
     /* response false */
