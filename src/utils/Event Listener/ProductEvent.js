@@ -16,9 +16,7 @@ function ProductEvent() {
         if (store.getState().User.id) {
             const productArr = []
             for (let i = 0; i < store.getState().UserProducts.favorite.length; i++) {
-                if (data.productTitle === store.getState().UserProducts.favorite[i].productTitle) {
-                    console.log("bulundu");
-                }
+                if (data.productTitle === store.getState().UserProducts.favorite[i].productTitle) { }
                 else {
                     productArr.push(store.getState().UserProducts.favorite[i])
                 }
