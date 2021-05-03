@@ -18,10 +18,10 @@ const Login = props => {
                                 postLogin(e.target[0].value, e.target[1].value)
                             }}>
                                 <FormGroup className="login-form-group" label="Email" labelFor="text-email" labelInfo="(Zorunlu)">
-                                    <InputGroup type="email" id="text-email" placeholder="deneme@deneme.com" defaultValue="deneme@deneme.com" required />
+                                    <InputGroup type="email" id="text-email" placeholder="deneme@deneme.com" autocomplete="username" defaultValue="deneme@deneme.com" required />
                                 </FormGroup>
                                 <FormGroup className="login-form-group" label="Şifre" labelFor="text-password" labelInfo="(Zorunlu)">
-                                    <InputGroup type="password" id="text-password" placeholder="*******" pattern=".{6,}" defaultValue="123456" required />
+                                    <InputGroup type="password" id="text-password" placeholder="*******" autocomplete="current-password" pattern=".{6,}" defaultValue="123456" required />
                                 </FormGroup>
                                 <div className="login-form-btn">
                                     <Button className="login-form-btn-giris buttons-btn bp3-button bp3-intent-success bp3-large bp3-fill" type="submit">Giriş</Button>
@@ -41,13 +41,13 @@ const Login = props => {
 
                             }}>
                                 <FormGroup className="login-form-group" label="Email" labelFor="text-email-register" labelInfo="(Zorunlu)">
-                                    <InputGroup type="email" id="text-email-register" placeholder="deneme@deneme.com" defaultValue="deneme@deneme.com" required />
+                                    <InputGroup type="email" id="text-email-register" placeholder="deneme@deneme.com" autocomplete="username" defaultValue="deneme@deneme.com" required />
                                 </FormGroup>
                                 <FormGroup className="login-form-group" label="Şifre" labelFor="text-password-register" labelInfo="(Zorunlu)">
-                                    <InputGroup type="password" id="text-password-register" placeholder="*******" defaultValue="123456" required />
+                                    <InputGroup type="password" id="text-password-register" placeholder="*******" autocomplete="new-password" defaultValue="123456" required />
                                 </FormGroup>
                                 <FormGroup className="login-form-group" label="Şifre Tekrar" labelFor="text-password-register2" labelInfo="(Zorunlu)">
-                                    <InputGroup type="password" id="text-password-register2" placeholder="*******" defaultValue="123456" required />
+                                    <InputGroup type="password" id="text-password-register2" placeholder="*******" autocomplete="new-password" defaultValue="123456" required />
                                 </FormGroup>
                                 <div className="login-form-btn">
                                     <Button className="login-form-btn-kaydol buttons-btn bp3-button bp3-intent-primary bp3-large bp3-fill" type="submit">Kaydol</Button>
