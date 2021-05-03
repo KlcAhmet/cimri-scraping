@@ -5,21 +5,32 @@ import { postUserInfoUpdate } from '../map/ServiceMap'
 import { useSelector } from "react-redux"
 import store, { UserInfo } from "../store/index"
 import { useEffect, useState } from "react"
+import { City } from "../map/UtilsMap"
 
 const MyAccount = () => {
     const userInfo = useSelector(state => state.UserInfo)
     const userMail = useSelector(state => state.User.userMail)
+    const userBirth = useSelector(state => state.UserInfo.birth)
+    // eslint-disable-next-line
     const [leftForm, setLeftForm] = useState(userInfo)
+    const [cityItem, setCityItem] = useState([])
 
     useEffect(() => {
-        try {
-            // eslint-disable-next-line
-            if (leftForm.name == 'null' || leftForm.name == null) {
-
+        const cityArr = []
+        City.forEach((item, index) => {
+            if (leftForm.city === item) {
+                cityArr.unshift(<option key={index}>{item}</option>)
             }
-        } catch (error) {
-
-        }
+            else {
+                cityArr.push(<option key={index}>{item}</option>)
+            }
+        })
+        setCityItem(
+            <Form.Control as="select">
+                {cityArr}
+            </Form.Control>
+        )
+        document.getElementById(userInfo.gender).checked = true
     }, [leftForm])
 
     return (
@@ -56,24 +67,18 @@ const MyAccount = () => {
                         <InputGroup type="mail" id="text-mail" defaultValue={userMail} disabled />
                     </FormGroup>
                     <fieldset>
-                        <FormGroup className="login-form-group" label="Cinsiyet:" labelFor="text-gender">
+                        <FormGroup className="login-form-group" label="Cinsiyet:" labelFor="genderRadios">
                             <Form.Check inline label="Erkek" type='radio' id='Erkek' name="genderRadios" />
                             <Form.Check inline label="Kadın" type='radio' id='Kadın' name="genderRadios" />
                             <Form.Check inline label="Belirtmek istemiyorum" type='radio' id='None' name="genderRadios" />
                         </FormGroup>
                     </fieldset>
                     <FormGroup className="login-form-group" label="Doğum Tarihi:" labelFor="date-birth">
-                        <Form.Control type="date" name='date_of_birth' id='date-birth' required />
+                        <Form.Control type="date" name='date_of_birth' id='date-birth' defaultValue={((leftForm.name === 'null') ? "dd-MM-yyyy" : userBirth)} required />
                     </FormGroup>
                     <Form.Group controlId="citySelect">
                         <Form.Label>İl:</Form.Label>
-                        <Form.Control as="select">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </Form.Control>
+                        {cityItem}
                     </Form.Group>
                     <Form.Group controlId="addressArea">
                         <Form.Label>Adres:</Form.Label>
