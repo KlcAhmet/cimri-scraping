@@ -25,6 +25,16 @@ export function UserInfo(event) {
     }
 }
 
+export function UserProducts(event) {
+    return async (dispatch) => {
+        const result = event
+        return await dispatch({
+            type: 'userProducts',
+            result
+        })
+    }
+}
+
 export function firsatlar(event) {
     return async (dispatch) => {
         const result = await event
@@ -87,6 +97,14 @@ const userInfoReducer = (state = [], actions) => {
         return state
     }
 }
+const userProductsReducer = (state = [], actions) => {
+    if (actions.type === "userProducts") {
+        return actions.result
+    }
+    else {
+        return state
+    }
+}
 
 const firsatlarReducer = (state = [], actions) => {
     if (actions.type === "firsatlar") {
@@ -139,6 +157,7 @@ const persistedState = loadState(initialState);
 export const allReducers = combineReducers({
     User: loginReducer,
     UserInfo: userInfoReducer,
+    UserProducts: userProductsReducer,
     CimriFirsatlar: firsatlarReducer,
     searchCimri: searchCimriReducer,
     searchCimriSubCategoryLink: searchCimriSubCategoryLinkReducer,
