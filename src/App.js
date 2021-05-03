@@ -3,7 +3,7 @@ import {
 } from "react-router-dom";
 /* Map */
 import { Home, Header, ProductsPage, ProductNotFound, Login, ProtectedAccount } from './map/ComponentMap'
-import { history,/*  EventBus, Const, */Message, LoginEvent } from './map/UtilsMap'
+import { history,/*  EventBus, Const, */Message, LoginEvent, ProductEvent } from './map/UtilsMap'
 /* Components */
 import { useSelector } from "react-redux"
 import { useEffect, useState } from 'react'
@@ -17,6 +17,7 @@ import "toastr/build/toastr.min.css"
 // postHeader()
 Message()
 LoginEvent()
+ProductEvent()
 
 
 function App() {
