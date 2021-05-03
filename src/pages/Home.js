@@ -15,7 +15,7 @@ const Home = props => {
             })
         }
         else {
-            postFirsatlar()
+            //  postFirsatlar()
         }
     }, [CimriFirsatlar])
 
