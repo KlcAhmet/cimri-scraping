@@ -128,10 +128,23 @@ function postUserInfoUpdate(body) {
     return axios.post(`${uri}${port}usersinfo/changeuserinfo/${UserInfoId}`, body, config)
 }
 
+function postUserChangePassword(password) {
+    const UserId = store.getState().User.id
+    const body = {
+        userPassword: password
+    }
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}users/changepassword/${UserId}`, body, config)
+}
+
 
 
 export {
     postHeader, postFirsatlar, postSearch, postSearchSubCategory,
     postRegister, postLogin, postGetUserInfo, postAddUserInfo, postAddUserProducts, postGetUserProduct,
-    postUserInfoUpdate,
+    postUserInfoUpdate, postUserChangePassword
 }

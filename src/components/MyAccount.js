@@ -1,11 +1,11 @@
 import { Button, FormGroup, InputGroup } from "@blueprintjs/core"
 import { Row, Col, Form } from 'react-bootstrap'
 import { UserInfoModel } from '../map/ModelMap'
-import { postUserInfoUpdate } from '../map/ServiceMap'
+import { postUserInfoUpdate, postUserChangePassword } from '../map/ServiceMap'
 import { useSelector } from "react-redux"
 import store, { UserInfo } from "../store/index"
 import { useEffect, useState } from "react"
-import { City } from "../map/UtilsMap"
+import { City, equalpasswords } from "../map/UtilsMap"
 
 const MyAccount = () => {
     const userInfo = useSelector(state => state.UserInfo)
@@ -30,7 +30,11 @@ const MyAccount = () => {
                 {cityArr}
             </Form.Control>
         )
-        document.getElementById(userInfo.gender).checked = true
+        try {
+            document.getElementById(leftForm.gender).checked = true  // değişecek
+        } catch (error) {
+
+        }
     }, [leftForm])
 
     return (
@@ -85,24 +89,37 @@ const MyAccount = () => {
                         <Form.Control as="textarea" rows={2} defaultValue={((leftForm.name === 'null') ? "" : leftForm.address)} required />
                     </Form.Group>
                     <div className="login-form-btn">
-                        <Button className="login-form-btn-giris buttons-btn bp3-button bp3-intent-success bp3-large bp3-fill" type="submit">Kayıt et</Button>
+                        <Button className="login-form-btn-giris buttons-btn bp3-button bp3-intent-success bp3-large bp3-fill" type="submit">Değişiklikleri kaydet</Button>
                     </div>
                 </Form>
             </Col>
             <Col xs={6}>
-                {/*        <form onSubmit={(e) => {
+                <Form onSubmit={(e) => {
                     e.preventDefault();
+                    console.dir(e.target)
+                    if (equalpasswords(e.target[1].value, e.target[2].value)) {
+                        postUserChangePassword(e.target[1].value)
+                    }
+                    else {
+                        //  Events(Const.events.wrongpassword.type)   değişecek
+                    }
+
                 }}>
-                    <FormGroup className="login-form-group" label="Email" labelFor="text-email" labelInfo="(Zorunlu)">
-                        <InputGroup type="email" id="text-email" placeholder="deneme@deneme.com" defaultValue="deneme@deneme.com" required />
+                    <FormGroup className="login-form-group" label="Mevcut şifreniz:" labelFor="text-currentpassword" labelInfo="(Zorunlu)">
+                        <InputGroup type="password" id="text-currentpassword" autoComplete="current-password" defaultValue="123456" required />
                     </FormGroup>
-                    <FormGroup className="login-form-group" label="Şifre" labelFor="text-password" labelInfo="(Zorunlu)">
-                        <InputGroup type="password" id="text-password" placeholder="*******" defaultValue="123456" required />
+                    <FormGroup className="login-form-group" label="Yeni Şifreniz:" labelFor="text-password1" labelInfo="(Zorunlu)">
+                        <InputGroup type="password" pattern=".{6,}" autoComplete="new-password" id="text-password1" required />
+                        <div className="bp3-form-helper-text">Şifreniz en az 6 karakter uzunluğunda olmalı.</div>
+                    </FormGroup>
+                    <FormGroup className="login-form-group" label="Yeni Şifrenizi Tekrar Giriniz:" labelFor="text-password2" labelInfo="(Zorunlu)">
+                        <InputGroup type="password" pattern=".{6,}" autoComplete="new-password" id="text-password2" required />
+                        <div className="bp3-form-helper-text">Şifreniz en az 6 karakter uzunluğunda olmalı.</div>
                     </FormGroup>
                     <div className="login-form-btn">
-                        <Button className="login-form-btn-giris buttons-btn bp3-button bp3-intent-success bp3-large bp3-fill" type="submit">Giriş</Button>
+                        <Button className="login-form-btn-giris buttons-btn bp3-button bp3-intent-success bp3-large bp3-fill" type="submit">Şifreyi güncelle</Button>
                     </div>
-                </form> */}
+                </Form>
             </Col>
         </Row>
     )
