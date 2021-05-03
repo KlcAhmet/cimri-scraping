@@ -15,3 +15,5 @@ export { default as MyAccount } from "../components/MyAccount"
 /* Image */
 export { default as etiket } from "../image/etiket.svg"
 export { default as yuzde } from "../image/yuzde.svg"
+export { default as likeblack } from "../image/likeblack.png"
+export { default as likered } from "../image/likered.png"

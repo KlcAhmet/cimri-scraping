@@ -27,4 +27,12 @@ exports.events = {
         type: 'productadd',
         message: '',
     },
+    productLike: {
+        type: 'productlike',
+        message: 'red'
+    },
+    productUnlike: {
+        type: 'productUnlike',
+        message: 'black'
+    },
 }
