@@ -6,7 +6,7 @@ export { Events } from "../utils/Event Bus/EventBusEvents"
 export { default as Const } from "../Consts/Const"
 export { default as City } from "../Consts/City"
 /* login-register */
-export { equalpasswords } from '../utils/Event Listener/registerpassword'
+export { equalpasswords } from '../utils/registerpassword'
 /* toastr message */
 export { default as Message } from "../utils/Message/Message"
 /* login event */
