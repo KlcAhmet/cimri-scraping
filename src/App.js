@@ -44,10 +44,10 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          {page}
-          <Route path="/notfound" component={ProductNotFound} />
           <Route path="/login" component={Login} />
           <Route path="/uyelik/hesabim" component={ProtectedAccount} />
+          <Route path="/notfound" component={ProductNotFound} />
+          {page}
         </Switch>
       </Router>
     </div >
