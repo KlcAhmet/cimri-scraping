@@ -19,6 +19,7 @@ const favorite = {
 }
 
 const UserProducts = {
+    id: String,
     userID: String,
     favorite: [favorite],
     priceAlarm: [priceAlarm]
