@@ -75,6 +75,16 @@ export function headerCimri(event) {
     }
 }
 
+export function productFavoriteUpdate(event) {
+    return async (dispatch) => {
+        const result = event
+        return await dispatch({
+            type: 'productFavoriteUpdate',
+            result
+        })
+    }
+}
+
 
 
 
@@ -100,6 +110,12 @@ const userInfoReducer = (state = [], actions) => {
 const userProductsReducer = (state = [], actions) => {
     if (actions.type === "userProducts") {
         return actions.result
+    }
+    if (actions.type === "productFavoriteUpdate") {
+        return {
+            ...state,
+            favorite: [...state.favorite, actions.result]
+        }
     }
     else {
         return state
