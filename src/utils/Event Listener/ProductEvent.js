@@ -1,5 +1,6 @@
 import { Const, EventBus } from '../../map/UtilsMap'
-import store, { productFavoriteAdd, productFavoriteRemove } from "../../store/index"
+import store, { productFavoriteAdd, productFavoriteRemove, productAlarmAdd } from "../../store/index"
+import { UserProductsModel } from '../../map/ModelMap'
 
 function ProductEvent() {
     EventBus.addListener(Const.events.productLike.type, ({ data }) => {
@@ -26,6 +27,33 @@ function ProductEvent() {
         else {
             // event gelecek değişecek
         }
+    })
+
+    EventBus.addListener(Const.events.productAlarmLike.type, ({ data }) => {
+        if (store.getState().User.id) {
+            UserProductsModel.priceAlarm = {
+                productLink: data.productLink,
+                productImageSrc: data.productImageSrc,
+                productTitle: data.productTitle,
+                productPrice: data.productTopOffers[0].offerPrice,
+            }
+            store.dispatch(productAlarmAdd(UserProductsModel.priceAlarm))
+        }
+        else {
+            // event gelecek değişecek
+        }
+
+    })
+
+    EventBus.addListener(Const.events.productAlarmUnlike.type, ({ data }) => {
+        /*  if (store.getState().User.id) { */
+        console.log("bb");
+        console.dir(data)
+        /*    }
+           else {
+               // event gelecek değişecek
+           } */
+
     })
 }
 
