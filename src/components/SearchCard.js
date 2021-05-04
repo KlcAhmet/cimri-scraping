@@ -1,12 +1,16 @@
 import { Card, Button } from 'react-bootstrap'
 import { useState } from 'react';
-import { likered, likeblack } from '../map/ComponentMap'
+import { likered, likeblack, alarmlike, alarmunlike } from '../map/ComponentMap'
 import { Events, Const } from "../map/UtilsMap"
 
 function SearchCard({ props }) {
     const [like, setlike] = useState({
         id: "black",
         img: likeblack
+    })
+    const [alarm, setalarm] = useState({
+        id: "alarmunlike",
+        img: alarmunlike
     })
     let offerArr = []
 
@@ -32,6 +36,15 @@ function SearchCard({ props }) {
                         Events(Const.events.productUnlike.type, props)
                     }
                 }}><img style={{ width: 20, zIndex: 2 }} src={like.img} alt="like" /></Button>
+                <Button variant="outline-primary" type="button" onClick={(e) => {
+                    setalarm(((alarm.id === 'alarmunlike') ? { id: 'alarmlike', img: alarmlike } : { id: 'alarmunlike', img: alarmunlike }))
+                    if (alarm.id === 'alarmunlike') {
+                        Events(Const.events.productAlarmLike.type, props)
+                    }
+                    else {
+                        Events(Const.events.productAlarmUnlike.type, props)
+                    }
+                }}><img style={{ width: 20, zIndex: 2 }} src={alarm.img} alt="like" /></Button>
             </div>
             <Card.Img className="SeachCard-topImg" variant="top" src={props.productImageSrc} />
             <Card.Body className="SeachCard-body">
