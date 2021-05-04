@@ -95,6 +95,26 @@ export function productFavoriteRemove(event) {
     }
 }
 
+export function productAlarmAdd(event) {
+    return async (dispatch) => {
+        const result = event
+        return await dispatch({
+            type: 'productAlarmAdd',
+            result
+        })
+    }
+}
+
+export function productAlarmRemove(event) {
+    return async (dispatch) => {
+        const result = event
+        return await dispatch({
+            type: 'productAlarmRemove',
+            result
+        })
+    }
+}
+
 
 
 
@@ -131,6 +151,18 @@ const userProductsReducer = (state = [], actions) => {
         return {
             ...state,
             favorite: actions.result
+        }
+    }
+    else if (actions.type === "productAlarmAdd") {
+        return {
+            ...state,
+            priceAlarm: [...state.priceAlarm, actions.result]
+        }
+    }
+    else if (actions.type === "productAlarmRemove") {
+        return {
+            ...state,
+            priceAlarm: actions.result
         }
     }
     else {
