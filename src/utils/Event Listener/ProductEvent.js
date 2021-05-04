@@ -1,5 +1,5 @@
 import { Const, EventBus } from '../../map/UtilsMap'
-import store, { productFavoriteAdd, productFavoriteRemove, productAlarmAdd } from "../../store/index"
+import store, { productFavoriteAdd, productFavoriteRemove, productAlarmAdd, productAlarmRemove } from "../../store/index"
 import { UserProductsModel } from '../../map/ModelMap'
 
 function ProductEvent() {
@@ -46,13 +46,19 @@ function ProductEvent() {
     })
 
     EventBus.addListener(Const.events.productAlarmUnlike.type, ({ data }) => {
-        /*  if (store.getState().User.id) { */
-        console.log("bb");
-        console.dir(data)
-        /*    }
-           else {
-               // event gelecek değişecek
-           } */
+        if (store.getState().User.id) {
+            const productArr = []
+            for (let i = 0; i < store.getState().UserProducts.priceAlarm.length; i++) {
+                if (data.productTitle === store.getState().UserProducts.priceAlarm[i].productTitle) { }
+                else {
+                    productArr.push(store.getState().UserProducts.priceAlarm[i])
+                }
+            }
+            store.dispatch(productAlarmRemove(productArr))
+        }
+        else {
+            // event gelecek değişecek
+        }
 
     })
 }
