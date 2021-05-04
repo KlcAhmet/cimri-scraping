@@ -141,10 +141,21 @@ function postUserChangePassword(password) {
     return axios.post(`${uri}${port}users/changepassword/${UserId}`, body, config)
 }
 
+function postUserProductUpdate(body) {
+    const Id = store.getState().UserProducts.id
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}userproducts/changeproduct/${Id}`, body, config)
+}
+
 
 
 export {
     postHeader, postFirsatlar, postSearch, postSearchSubCategory,
     postRegister, postLogin, postGetUserInfo, postAddUserInfo, postAddUserProducts, postGetUserProduct,
-    postUserInfoUpdate, postUserChangePassword
+    postUserInfoUpdate, postUserChangePassword, postUserProductUpdate
 }

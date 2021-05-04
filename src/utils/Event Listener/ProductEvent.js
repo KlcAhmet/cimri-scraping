@@ -1,11 +1,17 @@
 import { Const, EventBus } from '../../map/UtilsMap'
 import store, { productFavoriteAdd, productFavoriteRemove, productAlarmAdd, productAlarmRemove } from "../../store/index"
 import { UserProductsModel } from '../../map/ModelMap'
+import { postUserProductUpdate } from '../../map/ServiceMap'
 
 function ProductEvent() {
     EventBus.addListener(Const.events.productLike.type, ({ data }) => {
         if (store.getState().User.id) {
             store.dispatch(productFavoriteAdd(data))
+            const body = {
+                favorite: store.getState().UserProducts.favorite,
+                priceAlarm: store.getState().UserProducts.priceAlarm,
+            }
+            postUserProductUpdate(body)
         }
         else {
             // event gelecek değişecek
@@ -23,6 +29,11 @@ function ProductEvent() {
                 }
             }
             store.dispatch(productFavoriteRemove(productArr))
+            const body = {
+                favorite: store.getState().UserProducts.favorite,
+                priceAlarm: store.getState().UserProducts.priceAlarm,
+            }
+            postUserProductUpdate(body)
         }
         else {
             // event gelecek değişecek
@@ -38,6 +49,11 @@ function ProductEvent() {
                 productPrice: data.productTopOffers[0].offerPrice,
             }
             store.dispatch(productAlarmAdd(UserProductsModel.priceAlarm))
+            const body = {
+                favorite: store.getState().UserProducts.favorite,
+                priceAlarm: store.getState().UserProducts.priceAlarm,
+            }
+            postUserProductUpdate(body)
         }
         else {
             // event gelecek değişecek
@@ -55,6 +71,11 @@ function ProductEvent() {
                 }
             }
             store.dispatch(productAlarmRemove(productArr))
+            const body = {
+                favorite: store.getState().UserProducts.favorite,
+                priceAlarm: store.getState().UserProducts.priceAlarm,
+            }
+            postUserProductUpdate(body)
         }
         else {
             // event gelecek değişecek
