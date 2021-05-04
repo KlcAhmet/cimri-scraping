@@ -35,4 +35,12 @@ exports.events = {
         type: 'productUnlike',
         message: 'black'
     },
+    productAlarmLike: {
+        type: 'productAlarmLike',
+        message: ''
+    },
+    productAlarmUnlike: {
+        type: 'productAlarmUnlike',
+        message: ''
+    },
 }
