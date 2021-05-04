@@ -36,7 +36,7 @@ const favorite = new Schema({
         required: true,
         trim: true,
     },
-    offers: [favoriteOffers]
+    productTopOffers: [favoriteOffers]
 })
 
 //---------------------------
