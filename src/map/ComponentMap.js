@@ -13,6 +13,7 @@ export { default as SearchSubCategories } from "../components/SearchSubCategorie
 export { default as SearchPagesNumber } from "../components/SearchPagesNumber"
 export { default as MyAccount } from "../components/MyAccount"
 export { default as Favorite } from "../components/Favorite"
+export { default as PriceAlarm } from "../components/PriceAlarm"
 /* Image */
 export { default as etiket } from "../image/etiket.svg"
 export { default as yuzde } from "../image/yuzde.svg"
