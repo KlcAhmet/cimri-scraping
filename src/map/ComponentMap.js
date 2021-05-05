@@ -12,6 +12,7 @@ export { default as SearchCard } from "../components/SearchCard"
 export { default as SearchSubCategories } from "../components/SearchSubCategories"
 export { default as SearchPagesNumber } from "../components/SearchPagesNumber"
 export { default as MyAccount } from "../components/MyAccount"
+export { default as Favorite } from "../components/Favorite"
 /* Image */
 export { default as etiket } from "../image/etiket.svg"
 export { default as yuzde } from "../image/yuzde.svg"
