@@ -20,18 +20,17 @@ const PriceAlarm = props => {
                     priceAlarm.forEach((item, index) => {
                         cardsArr.push(
                             <Row key={index}>
-                                <Col xs={4}>
+                                <Col xs={3} sm={3}>
                                     <Image src={item.productImageSrc} fluid />
                                 </Col>
-                                <Col xs={7}>
-                                    <Row>
-                                        <h6><a href={item.productLink}>{item.productTitle}</a></h6>
-                                    </Row>
-                                    <Row>
-                                        <p>Takip fiyatı: {item.productPrice}</p>
-                                    </Row>
+                                <Col xs={7} sm={7}>
+
+                                    <Col xs={12} sm={12}><h6><a href={item.productLink}>{item.productTitle}</a></h6></Col>
+
+                                    <Col xs={12} sm={12}><p>Takip fiyatı: {item.productPrice}</p></Col>
+
                                 </Col>
-                                <Col xs={1}>
+                                <Col xs={1} sm={1}>
                                     <Button variant="outline-primary" type="button" onClick={(e) => {
                                         Events(Const.events.productAlarmUnlike.type, item)
                                     }}><Image src={alarm.img} style={{ width: 20, zIndex: 2 }} /></Button>
@@ -49,9 +48,9 @@ const PriceAlarm = props => {
 
 
     return (
-        <Row>
+        <div>
             {cards}
-        </Row>
+        </div>
     )
 }
 
