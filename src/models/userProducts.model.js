@@ -25,5 +25,5 @@ const UserProducts = {
     priceAlarm: [priceAlarm]
 
 }
-
+// eslint-disable-next-line
 export default { UserProducts, priceAlarm, favoriteOffers, favorite }

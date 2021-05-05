@@ -1,4 +1,4 @@
-const UserInfo = {
+export const UserInfo = {
     userID: String,
     name: String,
     surname: String,
@@ -8,7 +8,7 @@ const UserInfo = {
     address: String
 }
 
-const UserInfoUpdate = {
+export const UserInfoUpdate = {
     name: String,
     surname: String,
     gender: String,
@@ -16,5 +16,5 @@ const UserInfoUpdate = {
     city: String,
     address: String
 }
-
+// eslint-disable-next-line
 export default { UserInfo, UserInfoUpdate }

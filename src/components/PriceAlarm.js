@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { Row, Button, Col, Image } from 'react-bootstrap'
-import { alarmlike, alarmunlike } from '../map/ComponentMap'
+import { alarmlike } from '../map/ComponentMap'
 import { Events, Const } from "../map/UtilsMap"
 
 const PriceAlarm = props => {
     const priceAlarm = useSelector(state => state.UserProducts.priceAlarm)
     const [cards, setCard] = useState([])
-    const [alarm, setalarm] = useState({
-        id: 'alarmlike',
-        img: alarmlike
-    })
 
     useEffect(() => {
         if (priceAlarm) {
@@ -24,16 +20,13 @@ const PriceAlarm = props => {
                                     <Image src={item.productImageSrc} fluid />
                                 </Col>
                                 <Col xs={7} sm={7}>
-
                                     <Col xs={12} sm={12}><h6><a href={item.productLink}>{item.productTitle}</a></h6></Col>
-
                                     <Col xs={12} sm={12}><p>Takip fiyatı: {item.productPrice}</p></Col>
-
                                 </Col>
                                 <Col xs={1} sm={1}>
                                     <Button variant="outline-primary" type="button" onClick={(e) => {
                                         Events(Const.events.productAlarmUnlike.type, item)
-                                    }}><Image src={alarm.img} style={{ width: 20, zIndex: 2 }} /></Button>
+                                    }}><Image src={alarmlike} style={{ width: 20, zIndex: 2 }} /></Button>
                                 </Col>
                             </Row>
                         )
