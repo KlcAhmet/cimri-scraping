@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { Row, Col, ListGroup } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import { SearchCard } from "../map/ComponentMap"
 
 const Favorite = props => {
@@ -9,24 +9,24 @@ const Favorite = props => {
 
 
     useEffect(() => {
-        try {
-            setCard(() => {
-                const cardsArr = []
-                favorite.forEach((item, index) => {
-                    cardsArr.push(<SearchCard key={index} props={item} isLike={true} />)
+        if (favorite) {
+            try {
+                setCard(() => {
+                    const cardsArr = []
+                    favorite.forEach((item, index) => {
+                        cardsArr.push(<SearchCard key={index} props={item} isLike={true} />)
+                    })
+                    return cardsArr
                 })
-                return cardsArr
-            })
-        } catch (error) {
+            } catch (error) {
 
+            }
         }
     }, [favorite])
 
     return (
         <Row>
-
             {cards}
-
         </Row>
     )
 }
