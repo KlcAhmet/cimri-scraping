@@ -1,6 +1,6 @@
 /* import { useSelector } from "react-redux" */
 import { Container, Row, Col, ListGroup, Tab } from 'react-bootstrap'
-import { MyAccount } from '../map/ComponentMap'
+import { MyAccount, Favorite } from '../map/ComponentMap'
 
 const ProtectedRoute = (props) => {
     /*  const Token = useSelector(state => state.Token) */
@@ -19,7 +19,7 @@ const ProtectedRoute = (props) => {
                                         Favorilerim
                                   </ListGroup.Item>
                                     <ListGroup.Item action href="#fiyatalarm">
-                                        Favorilerim
+                                        Fiyat Alarmı
                                   </ListGroup.Item>
                                 </ListGroup>
                             </Col>
@@ -29,7 +29,7 @@ const ProtectedRoute = (props) => {
                                         <MyAccount />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="#favori">
-                                        favori
+                                        <Favorite />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="#fiyatalarm">
                                         fiyat
