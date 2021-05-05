@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { likered, likeblack, alarmlike, alarmunlike } from '../map/ComponentMap'
 import { Events, Const } from "../map/UtilsMap"
 
-function SearchCard({ props }) {
+function SearchCard({ props, isLike, isAlarm }) {
     const [like, setlike] = useState({
-        id: "black",
-        img: likeblack
+        id: ((isLike === true) ? 'red' : 'black'),
+        img: ((isLike === true) ? likered : likeblack)
     })
     const [alarm, setalarm] = useState({
-        id: "alarmunlike",
-        img: alarmunlike
+        id: ((isAlarm === true) ? 'alarmlike' : 'alarmunlike'),
+        img: ((isAlarm === true) ? alarmlike : alarmunlike)
     })
     let offerArr = []
 
