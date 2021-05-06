@@ -12,3 +12,4 @@ export { default as Message } from "../utils/Message/Message"
 /* login event */
 export { LoginEvent } from "../utils/Event Listener/LoginEvent"
 export { ProductEvent } from "../utils/Event Listener/ProductEvent"
+export { LocalStorageEvent } from "../utils/Event Listener/LocalStorageEvent"
