@@ -1,11 +1,13 @@
 /* import { useSelector } from "react-redux" */
 import { Container, Row, Col, ListGroup, Tab } from 'react-bootstrap'
 import { MyAccount, Favorite, PriceAlarm } from '../map/ComponentMap'
+import { history } from '../map/UtilsMap'
+import { useSelector } from "react-redux"
 
 const ProtectedRoute = (props) => {
-    /*  const Token = useSelector(state => state.Token) */
+    const isLoggin = useSelector(state => state.User.id)
     try {
-        if (true) {
+        if (isLoggin) {
             return (
                 <Container>
                     <Tab.Container id="list-group-tabs-example" defaultActiveKey={window.location.hash} >
@@ -42,9 +44,8 @@ const ProtectedRoute = (props) => {
             )
         }
         else {
-            return (
-                <p>aaaa</p>
-            )
+            history.push('/login')
+            window.location.reload();
         }
     } catch (error) {
 
