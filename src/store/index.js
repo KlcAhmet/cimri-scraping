@@ -211,9 +211,7 @@ const headerCimriReducer = (state = [], actions) => {
 const initialState = {
     User: {},
     UserInfo: {},
-    /* Token: null, */
-    CimriFirsatlar: {},
-    searchCimri: {},
+    UserProducts: {},
 }
 
 const persistedState = loadState(initialState);
