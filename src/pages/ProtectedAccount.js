@@ -12,7 +12,7 @@ const ProtectedRoute = (props) => {
                 <Container>
                     <Tab.Container id="list-group-tabs-example" defaultActiveKey={window.location.hash} >
                         <Row>
-                            <Col sm={4}>
+                            <Col sm={3}>
                                 <ListGroup>
                                     <ListGroup.Item action href="#hesap">
                                         Hesabım
