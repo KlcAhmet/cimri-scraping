@@ -1,4 +1,5 @@
 const cheerio = require('cheerio')
+const cimriPriceSplit = require('../cimriPriceSplit')
 
 function firsatlarCimri(data) {
     const $products = cheerio.load(data);
@@ -133,4 +134,11 @@ function headerCimri(data) {
     return returnData
 }
 
-module.exports = { firsatlarCimri, headerCimri, searchCimri }
+function productAlarm(data) {
+    const $products = cheerio.load(data);
+    const productPrice = $products('.cBVHJG')[0].firstChild.data
+    const returnValue = cimriPriceSplit.priceSplit(productPrice)
+    return returnValue
+}
+
+module.exports = { firsatlarCimri, headerCimri, searchCimri, productAlarm }
