@@ -152,18 +152,32 @@ function postUserProductUpdate(body) {
     return axios.post(`${uri}${port}userproducts/changeproduct/${Id}`, body, config)
 }
 
-function postProductAlarm(data) {
-    const body = {
-        productLink: data.productLink,
-        productTitle: data.productTitle,
-        productPrice: data.productPrice
+function postProductAlarm() {
+    if (store.getState().UserProducts.priceAlarm) {
+        store.getState().UserProducts.priceAlarm.forEach((item, index) => {
+            setTimeout(async function () {
+                if (index === store.getState().UserProducts.priceAlarm.length - 1) {
+                    setTimeout(function () { postProductAlarm() }, 3000);
+                }
+                const body = {
+                    productLink: item.productLink,
+                    productTitle: item.productTitle,
+                    productPrice: item.productPrice
+                }
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+                return axios.post(`${uri}${port}productalarm/`, body, config)
+            }, 2000 * index);
+        })
     }
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-        },
+    else {
+        setTimeout(async function () {
+            postProductAlarm()
+        }, 3000);
     }
-    return axios.post(`${uri}${port}productalarm/`, body, config)
 }
 
 
