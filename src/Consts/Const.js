@@ -13,7 +13,7 @@ exports.events = {
     },
     loginSuccess: {
         type: 'loginSuccess',
-        message: 'Giriş başarılı. Hesap ekranına yönlendiriliyorsunuz.',
+        message: 'Giriş başarılı. Ana sayfa ekranına yönlendiriliyorsunuz.',
     },
     loginUnsuccess: {
         type: 'loginUnsuccess',
@@ -46,5 +46,17 @@ exports.events = {
     productAlarm: {
         type: 'productAlar',
         message: ''
+    },
+    changeUserInfo: {
+        type: 'changeUserInfo',
+        message: 'Bilgiler güncellendi'
+    },
+    changePassword: {
+        type: 'changePassword',
+        message: 'Şifreniz güncellendi. Giriş ekranına yönlendiriliyorsunuz'
+    },
+    systemError: {
+        type: 'systemError',
+        message: 'Sistem hatası. Lütfen işleminizi daha sonra tekrar deneyin.'
     },
 }
