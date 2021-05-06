@@ -23,8 +23,16 @@ exports.events = {
         type: 'loginFirst',
         message: '',
     },
+    userInfo: {
+        type: 'userInfo',
+        message: '',
+    },
     productAdd: {
         type: 'productadd',
+        message: '',
+    },
+    productInfo: {
+        type: 'productInfo',
         message: '',
     },
     productLike: {
@@ -55,8 +63,16 @@ exports.events = {
         type: 'changePassword',
         message: 'Şifreniz güncellendi. Giriş ekranına yönlendiriliyorsunuz'
     },
+    changeproducts: {
+        type: 'changeproducts',
+        message: ''
+    },
     systemError: {
         type: 'systemError',
         message: 'Sistem hatası. Lütfen işleminizi daha sonra tekrar deneyin.'
+    },
+    exitAccount: {
+        type: 'exitAccount',
+        message: 'Güvenli çıkış yapılıyor.'
     },
 }
