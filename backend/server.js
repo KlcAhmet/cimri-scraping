@@ -25,12 +25,14 @@ const usersRouter = require('./routes/users')
 const usersInfoRouter = require('./routes/usersinfo')
 const userProductsRouter = require('./routes/userProducts')
 const cimriRouter = require('./routes/cimri')
+const productAlarm = require('./routes/productAlarm')
 
 /* route */
 app.use('/users', usersRouter)
 app.use('/usersinfo', usersInfoRouter)
 app.use('/userProducts', userProductsRouter)
 app.use('/cimri', cimriRouter)
+app.use('/productalarm', productAlarm)
 
 app.listen(port, () => {
     console.log(`Server is runnig on port: ${port}`)
