@@ -43,4 +43,8 @@ exports.events = {
         type: 'productAlarmUnlike',
         message: ''
     },
+    productAlarm: {
+        type: 'productAlar',
+        message: ''
+    },
 }

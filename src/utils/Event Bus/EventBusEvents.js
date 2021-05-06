@@ -13,4 +13,5 @@ export function Events(event, data) {
     else if (event === Const.events.productUnlike.type) EventBus.emit(Const.events.productUnlike.type, { data: data });
     else if (event === Const.events.productAlarmLike.type) EventBus.emit(Const.events.productAlarmLike.type, { data: data });
     else if (event === Const.events.productAlarmUnlike.type) EventBus.emit(Const.events.productAlarmUnlike.type, { data: data });
+    else if (event === Const.events.productAlarm.type) EventBus.emit(Const.events.productAlarm.type, { data: data });
 }

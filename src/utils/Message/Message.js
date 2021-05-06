@@ -109,6 +109,25 @@ function Message() {
             "hideMethod": "fadeOut"
         })
     })
+
+    EventBus.addListener(Const.events.productAlarm.type, ({ data }) => {
+        toastr.info(`${data} indirime girdi.`, 'İndirim alarmı', {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "0",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        })
+    })
 }
 
 export default Message
