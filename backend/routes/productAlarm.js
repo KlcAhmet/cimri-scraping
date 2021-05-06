@@ -8,7 +8,7 @@ router.route('/').post((req, res) => {
     try {
         const productLink = req.body.productLink
         const productPrice = req.body.productPrice
-        const oldPrice = 99999999 //cimriPriceSplit.priceSplit(productPrice)
+        const oldPrice = cimriPriceSplit.priceSplit(productPrice)
         axios.get(productLink)
             .then(async function (response) {
                 const newPrice = await Cimri.productAlarm(response.data)
