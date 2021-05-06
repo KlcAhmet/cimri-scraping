@@ -4,17 +4,6 @@ import { history, Events, Const } from "../map/UtilsMap"
 import { postGetUserInfo, postGetUserProduct } from "../map/ServiceMap"
 import { UserModel, UserInfoModel, UserProductsModel } from "../map/ModelMap"
 
-
-/* axios.interceptors.request.use(function (config) {
-    // Do something before request is sent
-    console.dir(config)
-    return config;
-}, function (error) {
-    // Do something with request error
-    return Promise.reject(error);
-}); */
-
-
 axios.interceptors.response.use(function (response) {
 
     if (response.data.success === true && response.data.type === "header") { store.dispatch(headerCimri(response.data.data)) }
@@ -31,6 +20,7 @@ axios.interceptors.response.use(function (response) {
         }
         store.dispatch(login(UserModel.User))
         Events(Const.events.loginSuccess.type)
+        history.push('/')
     }
     else if (response.data.success === true && response.data.type === "infoadd") { postGetUserInfo(store.getState().User.id) }
     else if (response.data.success === true && response.data.type === "userinfo") {
@@ -56,8 +46,11 @@ axios.interceptors.response.use(function (response) {
         }
         store.dispatch(UserProducts(UserProductsModel.UserProducts))
     }
-    else if (response.data.success === true && response.data.type === "changeuserinfo") { console.log("changeuserinfo true"); }
-    else if (response.data.success === true && response.data.type === "changepassword") { console.log("changepassword true"); }
+    else if (response.data.success === true && response.data.type === "changeuserinfo") { Events(Const.events.changeUwserInfo.type) }
+    else if (response.data.success === true && response.data.type === "changepassword") {
+        Events(Const.events.changePassword.type)
+        // giriş gönlendirme ve local store silinecek   değişecek
+    }
     else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response !== false) {
         const productTitle = response.data.response.productTitle
         Events(Const.events.productAlarm.type, productTitle)
@@ -67,10 +60,10 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
     else if (response.data.success === false && response.data.type === "login") { Events(Const.events.loginUnsuccess.type) }
     else if (response.data.success === false && response.data.type === "userinfo") { Events(Const.events.loginFirst.type) }
-    else if (response.data.success === false && response.data.type === "productadd") { console.log("productAdd false"); }
-    else if (response.data.success === false && response.data.type === "productinfo") { console.log("productinfo false"); }
-    else if (response.data.success === false && response.data.type === "changeuserinfo") { console.log("changeuserinfo false"); }
-    else if (response.data.success === false && response.data.type === "changepassword") { console.log("changepassword false"); }
+    else if (response.data.success === false && response.data.type === "productadd") { Events(Const.events.systemError.type) }
+    else if (response.data.success === false && response.data.type === "productinfo") { Events(Const.events.systemError.type) }
+    else if (response.data.success === false && response.data.type === "changeuserinfo") { Events(Const.events.systemError.type) }
+    else if (response.data.success === false && response.data.type === "changepassword") { Events(Const.events.systemError.type) }
     else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response === false) {
         console.log("productAlarm false");
     }
@@ -81,10 +74,12 @@ axios.interceptors.response.use(function (response) {
 }, function (err) {
     try {
         console.log(err);
+        Events(Const.events.systemError.type)
         return Promise.reject(err);
     } catch (error) {
         if (!err.status) {
             console.log(err);
+            Events(Const.events.systemError.type)
         }
         return Promise.reject(err)
     }
