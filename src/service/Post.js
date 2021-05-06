@@ -152,10 +152,24 @@ function postUserProductUpdate(body) {
     return axios.post(`${uri}${port}userproducts/changeproduct/${Id}`, body, config)
 }
 
+function postProductAlarm(data) {
+    const body = {
+        productLink: data.productLink,
+        productTitle: data.productTitle,
+        productPrice: data.productPrice
+    }
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    return axios.post(`${uri}${port}productalarm/`, body, config)
+}
+
 
 
 export {
     postHeader, postFirsatlar, postSearch, postSearchSubCategory,
     postRegister, postLogin, postGetUserInfo, postAddUserInfo, postAddUserProducts, postGetUserProduct,
-    postUserInfoUpdate, postUserChangePassword, postUserProductUpdate
+    postUserInfoUpdate, postUserChangePassword, postUserProductUpdate, postProductAlarm
 }
