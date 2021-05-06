@@ -1,7 +1,7 @@
 import { Button, FormGroup, InputGroup } from "@blueprintjs/core"
 import { Row, Col, Form } from 'react-bootstrap'
 import { UserInfoModel } from '../map/ModelMap'
-import { postUserInfoUpdate, postUserChangePassword } from '../map/ServiceMap'
+import { postUserInfoUpdate, postUserChangePassword, postProductAlarm } from '../map/ServiceMap'
 import { useSelector } from "react-redux"
 import store, { UserInfo } from "../store/index"
 import { useEffect, useState } from "react"
