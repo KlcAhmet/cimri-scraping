@@ -60,7 +60,7 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === true && response.data.type === "changepassword") { console.log("changepassword true"); }
     else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response !== false) {
         const productTitle = response.data.response.productTitle
-        console.log("productAlarm true ürün fiyatı düştü eventi gelecek");
+        Events(Const.events.productAlarm.type, productTitle)
     }
 
     /* response false */
@@ -71,11 +71,11 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === false && response.data.type === "productinfo") { console.log("productinfo false"); }
     else if (response.data.success === false && response.data.type === "changeuserinfo") { console.log("changeuserinfo false"); }
     else if (response.data.success === false && response.data.type === "changepassword") { console.log("changepassword false"); }
-    else if (response.data.success === true && response.data.type === "productAlarm" && response.data.statusCode === 400) {
+    else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response === false) {
         console.log("productAlarm false");
     }
 
-    console.dir(response)
+    //console.dir(response)
 
     return response;
 }, function (err) {
