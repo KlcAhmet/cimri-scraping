@@ -58,6 +58,10 @@ axios.interceptors.response.use(function (response) {
     }
     else if (response.data.success === true && response.data.type === "changeuserinfo") { console.log("changeuserinfo true"); }
     else if (response.data.success === true && response.data.type === "changepassword") { console.log("changepassword true"); }
+    else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response !== false) {
+        const productTitle = response.data.response.productTitle
+        console.log("productAlarm true ürün fiyatı düştü eventi gelecek");
+    }
 
     /* response false */
     else if (response.data.success === false && response.data.type === "register") { Events(Const.events.allreadymail.type) }
@@ -67,6 +71,9 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === false && response.data.type === "productinfo") { console.log("productinfo false"); }
     else if (response.data.success === false && response.data.type === "changeuserinfo") { console.log("changeuserinfo false"); }
     else if (response.data.success === false && response.data.type === "changepassword") { console.log("changepassword false"); }
+    else if (response.data.success === true && response.data.type === "productAlarm" && response.data.statusCode === 400) {
+        console.log("productAlarm false");
+    }
 
     console.dir(response)
 
