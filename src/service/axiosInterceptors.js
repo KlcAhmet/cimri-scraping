@@ -35,6 +35,7 @@ axios.interceptors.response.use(function (response) {
             address: response.data.response.address
         }
         store.dispatch(UserInfo(UserInfoModel.UserInfo))
+        Events(Const.events.userInfo.type)
     }
     else if (response.data.success === true && response.data.type === "productadd") { postGetUserProduct(store.getState().User.id) }
     else if (response.data.success === true && response.data.type === "productinfo") {
@@ -45,11 +46,14 @@ axios.interceptors.response.use(function (response) {
             priceAlarm: response.data.response.priceAlarm
         }
         store.dispatch(UserProducts(UserProductsModel.UserProducts))
+        Events(Const.events.productInfo.type)
     }
-    else if (response.data.success === true && response.data.type === "changeuserinfo") { Events(Const.events.changeUwserInfo.type) }
+    else if (response.data.success === true && response.data.type === "changeuserinfo") { Events(Const.events.changeUserInfo.type) }
     else if (response.data.success === true && response.data.type === "changepassword") {
         Events(Const.events.changePassword.type)
-        // giriş gönlendirme ve local store silinecek   değişecek
+    }
+    else if (response.data.success === true && response.data.type === "changeproducts") {
+        Events(Const.events.changeproducts.type)
     }
     else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response !== false) {
         const productTitle = response.data.response.productTitle
@@ -61,14 +65,14 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === false && response.data.type === "login") { Events(Const.events.loginUnsuccess.type) }
     else if (response.data.success === false && response.data.type === "userinfo") { Events(Const.events.loginFirst.type) }
     else if (response.data.success === false && response.data.type === "productadd") { Events(Const.events.systemError.type) }
-    else if (response.data.success === false && response.data.type === "productinfo") { Events(Const.events.systemError.type) }
+    else if (response.data.success === false && response.data.type === "productinfo") { /* Events(Const.events.systemError.type) */ }
     else if (response.data.success === false && response.data.type === "changeuserinfo") { Events(Const.events.systemError.type) }
     else if (response.data.success === false && response.data.type === "changepassword") { Events(Const.events.systemError.type) }
     else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response === false) {
         console.log("productAlarm false");
     }
 
-    //console.dir(response)
+    console.dir(response)
 
     return response;
 }, function (err) {
