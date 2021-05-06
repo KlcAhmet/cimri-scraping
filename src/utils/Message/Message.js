@@ -109,6 +109,27 @@ function Message() {
         })
     })
 
+    EventBus.addListener(Const.events.exitAccount.type, () => {
+        toastr.clear()
+        toastr.success(Const.events.exitAccount.message, 'BYE', {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        })
+    })
+
     EventBus.addListener(Const.events.loginUnsuccess.type, () => {
         toastr.clear()
         toastr.error(Const.events.loginUnsuccess.message, 'Uyarı', {
