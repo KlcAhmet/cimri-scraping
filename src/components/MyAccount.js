@@ -2,6 +2,7 @@ import { Button, FormGroup, InputGroup } from "@blueprintjs/core"
 import { Row, Col, Form } from 'react-bootstrap'
 import { UserInfoModel } from '../map/ModelMap'
 import { postUserInfoUpdate, postUserChangePassword, postProductAlarm } from '../map/ServiceMap'
+import { Const, Events } from '../map/UtilsMap'
 import { useSelector } from "react-redux"
 import store, { UserInfo } from "../store/index"
 import { useEffect, useState } from "react"
@@ -101,7 +102,7 @@ const MyAccount = () => {
                         postUserChangePassword(e.target[1].value)
                     }
                     else {
-                        //  Events(Const.events.wrongpassword.type)   değişecek
+                        Events(Const.events.wrongpassword.type)
                     }
 
                 }}>
