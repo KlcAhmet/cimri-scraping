@@ -17,17 +17,10 @@ export const loadState = (initialState) => {
 }
 
 export const saveState = (state) => {
+    console.dir(state)
     try {
-        if (localStorage.getItem(Object.keys(state)) === null) {
-            const serialState = JSON.stringify(state);
-            localStorage.setItem(Object.keys(state), serialState);
-        }
-        else {
-            if (Object.keys(state)[0] === 'searchCimri') {
-                const serialState = JSON.stringify(state);
-                localStorage.setItem(Object.keys(state), serialState);
-            }
-        }
+        const serialState = JSON.stringify(state);
+        localStorage.setItem(Object.keys(state), serialState);
     } catch (err) {
         console.log(err);
     }
