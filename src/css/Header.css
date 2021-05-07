@@ -1,0 +1,60 @@
+@use 'App.scss';
+:root {
+  --font-family-Lato: 'Lato', sans-serif;
+  --color-site: #27588a;
+}
+
+.headerTop {
+  background-color: var(--color-site);
+}
+
+.headerTop-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.headerTop-search {
+  margin-top: 12px;
+}
+
+.headerTop-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
+.headerBottom .nav-item a {
+  font-family: var(--font-family-Lato);
+  font-weight: bold;
+}
+
+.headerBottom .dropdown-menu a {
+  font-weight: 100;
+}
+
+.navbar-collapse {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+  .headerTop-user {
+    margin-top: 15px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .headerTop-user button {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=Header.css.map */

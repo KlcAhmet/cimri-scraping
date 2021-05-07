@@ -1,0 +1,57 @@
+@use 'App.scss';
+:root {
+    --font-family-Lato: 'Lato', sans-serif;
+    --color-site: #27588a;
+}
+
+.headerTop {
+    background-color: var(--color-site);
+    &-logo {
+        display: flex;
+        justify-content: center;
+    }
+    &-search {
+        margin-top: 12px;
+    }
+    &-user {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 5px;
+    }
+}
+
+.headerBottom {
+    .nav {
+        &-item {
+            a {
+                font-family: var(--font-family-Lato);
+                font-weight: bold;
+            }
+        }
+    }
+    .dropdown {
+        &-menu {
+            a {
+                font-weight: 100;
+            }
+        }
+    }
+}
+
+.navbar {
+    &-collapse {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .headerTop {
+        &-user {
+            margin-top: 15px;
+            justify-content: flex-start;
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
