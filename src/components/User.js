@@ -22,21 +22,19 @@ const User = props => {
     }, [userName])
 
     return (
-        <div>
-            <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    <span><Icon icon={IconNames.PERSON} iconSize={IconSize.LARGE} intent={Intent.PRIMARY} /> {id}</span>
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                    <Dropdown.Item style={{ display: loginButtonDisplay }} onClick={() => history.push('/login')} >Giriş</Dropdown.Item>
-                    <Dropdown.Divider style={{ display: loginButtonDisplay }} />
-                    <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#hesap')}>Hesabım</Dropdown.Item>
-                    <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#favori')}>Favorilerim</Dropdown.Item>
-                    <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#fiyatalarm')}>Fiyat Alarmı</Dropdown.Item>
-                    <Dropdown.Item onClick={() => { Events(Const.events.exitAccount.type) }}>Çıkış</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-        </div>
+        <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <span><Icon icon={IconNames.PERSON} iconSize={IconSize.LARGE} intent={Intent.PRIMARY} /> {id}</span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+                <Dropdown.Item style={{ display: loginButtonDisplay }} onClick={() => history.push('/login')} >Giriş</Dropdown.Item>
+                <Dropdown.Divider style={{ display: loginButtonDisplay }} />
+                <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#hesap')}>Hesabım</Dropdown.Item>
+                <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#favori')}>Favorilerim</Dropdown.Item>
+                <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#fiyatalarm')}>Fiyat Alarmı</Dropdown.Item>
+                <Dropdown.Item onClick={() => { Events(Const.events.exitAccount.type) }}>Çıkış</Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
     )
 }
 
