@@ -4,6 +4,7 @@ export { default as ProductsPage } from "../pages/ProductsPage"
 export { default as ProductNotFound } from "../pages/ProductNotFound"
 export { default as Login } from "../pages/Login"
 export { default as ProtectedAccount } from "../pages/ProtectedAccount"
+export { default as Page404 } from "../pages/Page404"
 /* Components */
 export { default as FirsatlarCard } from "../components/FirsatlarCard"
 export { default as Header } from "../components/Header"

@@ -15,14 +15,13 @@ const Home = props => {
             })
         }
         else {
-            //  postFirsatlar()
+            postFirsatlar()
         }
     }, [CimriFirsatlar])
 
     return (
         <Container>
             <div>
-                <p>home page</p>
                 <Row>
                     {cards}
                 </Row>

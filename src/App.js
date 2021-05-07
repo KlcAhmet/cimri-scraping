@@ -2,22 +2,25 @@ import {
   Router, Switch, Route
 } from "react-router-dom";
 /* Map */
-import { Home, Header, ProductsPage, ProductNotFound, Login, ProtectedAccount } from './map/ComponentMap'
-import { history,/*  EventBus, Const, */Message, LoginEvent, ProductEvent } from './map/UtilsMap'
+import { Home, Header, ProductsPage, ProductNotFound, Login, ProtectedAccount, Page404 } from './map/ComponentMap'
+import { history,/*  EventBus, Const, */Message, LoginEvent, ProductEvent, LocalStorageEvent } from './map/UtilsMap'
+import { postProductAlarm, postSearch } from './map/ServiceMap'
 /* Components */
 import { useSelector } from "react-redux"
 import { useEffect, useState } from 'react'
 /* Sercive */
-/* import { postHeader } from './map/ServiceMap' */
+import { postHeader } from './map/ServiceMap'
 /* CSS */
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "@blueprintjs/core/lib/css/blueprint.css"
 import "toastr/build/toastr.min.css"
 /* On load */
-// postHeader()
+postHeader()
 Message()
 LoginEvent()
 ProductEvent()
+LocalStorageEvent()
+//postProductAlarm()
 
 
 function App() {
@@ -32,7 +35,7 @@ function App() {
     else if (window.location.search.length) {
       // eslint-disable-next-line
       const temp = window.location.pathname + window.location.search
-      //  cimriSearch.searchCimri(window.location.search.substring(2, window.location.search.length)) değişecek
+      postSearch(temp.substring(1, temp.length))
       setPage(<Route path="/:temp" component={ProductsPage} />)
       history.push(window.location.pathname + window.location.search)
     }
@@ -48,6 +51,7 @@ function App() {
           <Route path="/uyelik/hesabim" component={ProtectedAccount} />
           <Route path="/notfound" component={ProductNotFound} />
           {page}
+          <Route component={Page404} />
         </Switch>
       </Router>
     </div >
