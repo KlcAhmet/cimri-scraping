@@ -1,9 +1,10 @@
-import { Row, Col, Form, Button, Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { User } from '../map/ComponentMap'
+import { Row, Col, Form, Button, Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
+import { User, logo } from '../map/ComponentMap'
 import { history } from '../map/UtilsMap'
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { postSearch } from '../map/ServiceMap'
+import { Link } from "react-router-dom";
 
 const Header = props => {
     const headerCimri = useSelector(state => state.headerCimri)
@@ -23,8 +24,9 @@ const Header = props => {
                         >{headerCimri.headerSubCategory[j].title}</NavDropdown.Item>
                     )
                 }
+                const splitWord = headerCimri.headerNav[i].title.split(',')
                 navArr.push(
-                    <NavDropdown key={i} title={headerCimri.headerNav[i].title} id="basic-nav-dropdown" >
+                    <NavDropdown key={i} title={splitWord[0]} id="basic-nav-dropdown" >
                         {temp}
                     </NavDropdown >
                 )
@@ -38,11 +40,11 @@ const Header = props => {
 
     return (
         <header>
-            <Row>
-                <Col xs={2}>
-                    <button onClick={() => { history.push("/") }}>Header Logo</button>
+            <Row className="d-flex align-items-center headerTop" style={{ margin: 0 }}>
+                <Col className="headerTop-logo" xs={12} sm={12} md={12} lg={2}>
+                    <Link to="/"><Image src={logo} fluid /></Link>
                 </Col>
-                <Col xs={8}>
+                <Col xs={12} sm={12} md={12} lg={7} className="headerTop-search">
                     <Form onSubmit={(e) => {
                         e.preventDefault()
                         if (e.target[0].value !== "") {
@@ -50,7 +52,7 @@ const Header = props => {
                         }
                     }}>
                         <Row>
-                            <Col xs={9}><Form.Group controlId="formText"><Form.Control type="text" placeholder="Ürün arayın" onKeyDown={(e) => {
+                            <Col xs={11} sm={12} md={12} lg={10} ><Form.Group controlId="formText"><Form.Control type="text" placeholder="Ürün arayın" onKeyDown={(e) => {
                                 if (e.key === 'Enter') {
                                     e.preventDefault()
                                     if (e.target.value !== "") {
@@ -58,22 +60,26 @@ const Header = props => {
                                     }
                                 }
                             }} /></Form.Group></Col>
-                            <Col xs={3}><Button variant="primary" type="submit">ARA</Button></Col>
+                            <Col xs={11} sm={12} md={12} lg={2} ><Button variant="primary" type="submit" block>ARA</Button></Col>
                         </Row>
                     </Form>
                 </Col>
-                <Col xs={2}>
+                <Col xs={12} sm={12} md={12} lg={3} className="headerTop-user" >
                     <User />
                 </Col>
             </Row>
-            <Navbar bg="light" expand="lg">
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        {navigationBar}
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+            <Row style={{ margin: 0 }}>
+                <Col style={{ padding: 0 }} xs={12} sm={12}>
+                    <Navbar bg="light" expand="lg">
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className=" headerBottom">
+                                {navigationBar}
+                            </Nav>
+                        </Navbar.Collapse>
+                    </Navbar>
+                </Col>
+            </Row>
         </header>
     )
 }
