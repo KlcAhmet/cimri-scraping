@@ -1,0 +1,89 @@
+:root {
+  --sCard-padding: 8px 10px;
+  --sCard-margin: 5px 5px 0 0;
+}
+
+.searchCard {
+  margin: 7px;
+  width: 16rem;
+  padding: 7px;
+}
+
+.searchCard-buttons {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.searchCard-buttons-likeBtn {
+  border-color: var(--gray);
+  border-radius: 50px;
+  padding: var(--sCard-padding);
+  margin: var(--sCard-margin);
+}
+
+.searchCard-buttons-likeBtn img {
+  width: 20px;
+}
+
+.searchCard-buttons-likeBtn:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.searchCard-buttons-alarmBtn {
+  border-color: var(--gray);
+  border-radius: 50px;
+  padding: var(--sCard-padding);
+  margin: var(--sCard-margin);
+}
+
+.searchCard-buttons-alarmBtn img {
+  width: 20px;
+}
+
+.searchCard-buttons-alarmBtn:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.searchCard-Img {
+  width: 10rem;
+  margin: 0 auto;
+}
+
+.searchCard-body-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #3e4145;
+}
+
+.searchCard-body-priceBody-link {
+  margin-bottom: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 1px solid var(--teal);
+  padding-bottom: 3px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.searchCard-body-priceBody-link-offerPrice {
+  margin-left: 8px;
+}
+/*# sourceMappingURL=SearchCard.css.map */

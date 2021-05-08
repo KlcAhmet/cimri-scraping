@@ -1,0 +1,70 @@
+:root {
+    --sCard-padding: 8px 10px;
+    --sCard-margin: 5px 5px 0 0;
+}
+
+.searchCard {
+    margin: 7px;
+    width: 16rem;
+    padding: 7px;
+    &-buttons {
+        z-index: 1;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        &-likeBtn {
+            border-color: var(--gray);
+            border-radius: 50px;
+            padding: var(--sCard-padding);
+            margin: var(--sCard-margin);
+            img {
+                width: 20px;
+            }
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        &-alarmBtn {
+            border-color: var(--gray);
+            border-radius: 50px;
+            padding: var(--sCard-padding);
+            margin: var(--sCard-margin);
+            img {
+                width: 20px;
+            }
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+    }
+    &-Img {
+        width: 10rem;
+        margin: 0 auto;
+    }
+    &-body {
+        &-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: rgb(62, 65, 69);
+        }
+        &-priceBody {
+            &-link {
+                margin-bottom: 7px;
+                display: flex;
+                flex-direction: column;
+                border-bottom: 1px solid var(--teal);
+                padding-bottom: 3px;
+                font-size: 13px;
+                font-weight: 500;
+                &-offerName {}
+                &-offerPrice {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}
