@@ -25,7 +25,7 @@ const ProtectedRoute = (props) => {
                                   </ListGroup.Item>
                                 </ListGroup>
                             </Col>
-                            <Col xs={11} sm={11} md={8} lg={8}>
+                            <Col xs={11} sm={11} md={9} lg={9}>
                                 <Tab.Content>
                                     <Tab.Pane eventKey="#hesap">
                                         <MyAccount />
