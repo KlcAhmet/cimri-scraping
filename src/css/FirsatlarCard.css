@@ -5,6 +5,10 @@
   height: 27rem;
 }
 
+.firsatlarCard:hover {
+  cursor: pointer;
+}
+
 .firsatlarCard-headerImg {
   width: 13rem;
   margin: 0 auto;
