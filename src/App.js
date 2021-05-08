@@ -17,6 +17,7 @@ import "toastr/build/toastr.min.css"
 import './css/App.css'
 import './css/Header.css'
 import './css/FirsatlarCard.css'
+import './css/ProductsPage.css'
 /* On load */
 postHeader()
 Message()
