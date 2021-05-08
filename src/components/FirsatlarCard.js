@@ -1,20 +1,23 @@
-import { Card } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
+import { yuzde, etiket } from '../map/ComponentMap'
 
 function FirsatlarCard({ props }) {
 
     return (
-        <Card className="FirsatlarCard" style={{ width: '18rem' }} >
-            <Card.Img className="FirsatlarCard-topImg" variant="top" src={props.productImageSrc} />
-            <Card.Body className="FirsatlarCard-body">
-                <Card.Title className="FirsatlarCard-title">{props.productTitle}</Card.Title>
-                <div className="FirsatlarCard-priceBody">
-                    <span className="FirsatlarCard-priceBody-discount">{`%${props.productDiscount}`}</span>
-                    <span className="FirsatlarCard-priceBody-lastPrice">{props.productLastPrice}</span>
-                    <span className="FirsatlarCard-priceBody-newPrice">{props.productNewPrice}</span>
-                </div>
-            </Card.Body>
-            <Card.Img className="FirsatlarCard-bottomImg" variant="center" src={props.productCompanyLogo} onClick={() => { window.location.href = props.productLink }} />
-        </Card>
+        <article>
+            <Card className="firsatlarCard">
+                <Card.Img className="firsatlarCard-headerImg" variant="top" src={props.productImageSrc} />
+                <Card.Body className="firsatlarCard-body">
+                    <Card.Title className="firsatlarCard-body-title"><Image className="firsatlarCard-body-title-Img" src={etiket} fluid />{props.productTitle}</Card.Title>
+                    <div className="firsatlarCard-price">
+                        <span className="firsatlarCard-price-discount"><Image src={yuzde} fluid />{props.productDiscount}</span>
+                        <span className="firsatlarCard-price-lastPrice">{props.productLastPrice}</span>
+                        <span className="firsatlarCard-price-newPrice">{props.productNewPrice}</span>
+                    </div>
+                    <Card.Img className="firsatlarCard-body-footerImg" variant="center" src={props.productCompanyLogo} onClick={() => { window.location.href = props.productLink }} />
+                </Card.Body>
+            </Card>
+        </article>
     )
 }
 
