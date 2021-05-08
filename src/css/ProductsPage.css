@@ -17,6 +17,7 @@
 .subCategory-list span {
   font-weight: 500;
   color: var(--gray-dark);
+  overflow-wrap: break-word;
 }
 
 .subCategory-list span:hover {
