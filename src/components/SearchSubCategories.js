@@ -1,19 +1,16 @@
-import { ListGroup, Button } from 'react-bootstrap'
-/* import Post from '../service/Post' */
+import { ListGroup } from 'react-bootstrap'
 import store, { searchCimriSubCategoryLink } from '../store/index'
 import { postSearchSubCategory } from '../map/ServiceMap'
 
 function SearchSubCategories({ props }) {
 
     return (
-        <ListGroup.Item>
-            <Button onClick={() => {
+        <ListGroup.Item className="subCategory-list">
+            <span onClick={() => {
                 store.dispatch(searchCimriSubCategoryLink(props.categoryLink))
                 postSearchSubCategory(props.categoryLink)
             }}>
-                {props.categoryName}
-                <span>{props.categoryProductsCount}</span>
-            </Button>
+                {props.categoryName} ({props.categoryProductsCount})</span>
         </ListGroup.Item>
     )
 }
