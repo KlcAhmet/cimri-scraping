@@ -68,3 +68,13 @@
         }
     }
 }
+
+.favorite {
+    .searchCard {
+        &-buttons {
+            &-alarmBtn {
+                display: none;
+            }
+        }
+    }
+}

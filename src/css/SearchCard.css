@@ -86,4 +86,8 @@
 .searchCard-body-priceBody-link-offerPrice {
   margin-left: 8px;
 }
+
+.favorite .searchCard-buttons-alarmBtn {
+  display: none;
+}
 /*# sourceMappingURL=SearchCard.css.map */
