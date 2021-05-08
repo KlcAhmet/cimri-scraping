@@ -21,11 +21,9 @@ const Home = props => {
 
     return (
         <Container>
-            <div>
-                <Row>
-                    {cards}
-                </Row>
-            </div>
+            <Row className="d-flex justify-content-center">
+                {cards}
+            </Row>
         </Container>
     )
 }
