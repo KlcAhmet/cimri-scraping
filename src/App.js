@@ -14,6 +14,9 @@ import { postHeader } from './map/ServiceMap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "@blueprintjs/core/lib/css/blueprint.css"
 import "toastr/build/toastr.min.css"
+import './css/App.css'
+import './css/Header.css'
+import './css/FirsatlarCard.css'
 /* On load */
 postHeader()
 Message()
@@ -45,14 +48,16 @@ function App() {
     <div className="App">
       <Router history={history}>
         <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/uyelik/hesabim" component={ProtectedAccount} />
-          <Route path="/notfound" component={ProductNotFound} />
-          {page}
-          <Route component={Page404} />
-        </Switch>
+        <main>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
+            <Route path="/uyelik/hesabim" component={ProtectedAccount} />
+            <Route path="/notfound" component={ProductNotFound} />
+            {page}
+            <Route component={Page404} />
+          </Switch>
+        </main>
       </Router>
     </div >
   );
