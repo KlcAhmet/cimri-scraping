@@ -3,4 +3,8 @@
   --font-family-Lato: 'Lato', sans-serif;
   --color-site: #27588a;
 }
+
+body {
+  background-color: #f8f8f8;
+}
 /*# sourceMappingURL=App.css.map */
