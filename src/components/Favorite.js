@@ -14,7 +14,7 @@ const Favorite = props => {
                 setCard(() => {
                     const cardsArr = []
                     favorite.forEach((item, index) => {
-                        cardsArr.push(<SearchCard key={index} props={item} isLike={true} />)
+                        cardsArr.push(<SearchCard classname="favorite" key={index} props={item} isLike={true} />)
                     })
                     return cardsArr
                 })
@@ -25,7 +25,7 @@ const Favorite = props => {
     }, [favorite])
 
     return (
-        <Row>
+        <Row className="d-flex justify-content-center">
             {cards}
         </Row>
     )

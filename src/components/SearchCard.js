@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { likered, likeblack, alarmlike, alarmunlike } from '../map/ComponentMap'
 import { Events, Const } from "../map/UtilsMap"
 
-function SearchCard({ props, isLike, isAlarm }) {
+function SearchCard({ props, isLike, isAlarm, classname }) {
     const [like, setlike] = useState({
         id: ((isLike === true) ? 'red' : 'black'),
         img: ((isLike === true) ? likered : likeblack)
@@ -25,7 +25,7 @@ function SearchCard({ props, isLike, isAlarm }) {
     })
 
     return (
-        <Card className="searchCard" /* onClick={() => { window.location.href = props.productLink }} */>
+        <Card className={`searchCard ${((classname === 'favorite') ? "favorite" : '')}`}/* onClick={() => { window.location.href = props.productLink }} */>
             <div className="searchCard-buttons">
                 <Button className="searchCard-buttons-likeBtn" variant="outline-primary" type="button" onClick={(e) => {
                     setlike(((like.id === 'black') ? { id: 'red', img: likered } : { id: 'black', img: likeblack }))
