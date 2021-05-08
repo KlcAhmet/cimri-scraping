@@ -51,4 +51,13 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 575px) {
+  .headerTop form {
+    padding-left: 8%;
+  }
+  .headerTop-user {
+    padding-left: 10.6%;
+  }
+}
 /*# sourceMappingURL=Header.css.map */

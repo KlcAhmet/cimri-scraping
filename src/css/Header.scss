@@ -49,3 +49,14 @@
         }
     }
 }
+
+@media screen and (max-width: 575px) {
+    .headerTop {
+        form {
+            padding-left: 8%;
+        }
+        &-user {
+            padding-left: 10.6%;
+        }
+    }
+}
