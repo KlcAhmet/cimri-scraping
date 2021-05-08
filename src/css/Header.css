@@ -1,9 +1,3 @@
-@use 'App.scss';
-:root {
-  --font-family-Lato: 'Lato', sans-serif;
-  --color-site: #27588a;
-}
-
 .headerTop {
   background-color: var(--color-site);
 }
