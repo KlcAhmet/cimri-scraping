@@ -1,0 +1,48 @@
+.firsatlarCard {
+    margin: 7px;
+    width: 16rem;
+    padding: 7px 0;
+    height: 27rem;
+    &-headerImg {
+        width: 13rem;
+        margin: 0 auto;
+    }
+    &-body {
+        padding-bottom: 10px;
+        &-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: rgb(62, 65, 69);
+            &-Img {
+                width: 1.150rem;
+            }
+        }
+        &-footerImg {
+            display: block;
+            width: 8rem;
+            margin: 0 auto;
+        }
+    }
+    &-price {
+        margin-bottom: 8px;
+        &-discount {
+            font-size: 23px;
+            margin-right: 10px;
+            color: var(--red);
+            img {
+                width: 1.5rem;
+                margin-bottom: 5px;
+            }
+        }
+        &-lastPrice {
+            font-size: 15px;
+            text-decoration: line-through;
+        }
+        &-newPrice {
+            display: block;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+}

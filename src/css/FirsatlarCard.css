@@ -1,0 +1,59 @@
+.firsatlarCard {
+  margin: 7px;
+  width: 16rem;
+  padding: 7px 0;
+  height: 27rem;
+}
+
+.firsatlarCard-headerImg {
+  width: 13rem;
+  margin: 0 auto;
+}
+
+.firsatlarCard-body {
+  padding-bottom: 10px;
+}
+
+.firsatlarCard-body-title {
+  font-size: 13px;
+  font-weight: bold;
+  color: #3e4145;
+}
+
+.firsatlarCard-body-title-Img {
+  width: 1.150rem;
+}
+
+.firsatlarCard-body-footerImg {
+  display: block;
+  width: 8rem;
+  margin: 0 auto;
+}
+
+.firsatlarCard-price {
+  margin-bottom: 8px;
+}
+
+.firsatlarCard-price-discount {
+  font-size: 23px;
+  margin-right: 10px;
+  color: var(--red);
+}
+
+.firsatlarCard-price-discount img {
+  width: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.firsatlarCard-price-lastPrice {
+  font-size: 15px;
+  text-decoration: line-through;
+}
+
+.firsatlarCard-price-newPrice {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+/*# sourceMappingURL=FirsatlarCard.css.map */
