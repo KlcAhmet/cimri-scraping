@@ -1,0 +1,33 @@
+.ProductsPage {
+    margin-top: 10px;
+    &-main {
+        &-pageNumber {
+            margin-top: 30px;
+        }
+    }
+}
+
+.subCategory {
+    &-header {
+        font-weight: bold;
+    }
+    &-list {
+        padding: 5px 7px;
+        span {
+            font-weight: 500;
+            color: var(--gray-dark);
+            &:hover {
+                color: var(--blue);
+            }
+        }
+        &:hover {
+            border-color: var(--blue)
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .subCategory {
+        display: none;
+    }
+}
