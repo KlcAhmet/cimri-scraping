@@ -30,20 +30,26 @@ function ProductsPage() {
     }, [searchCimri])
 
     return (
-        <Row style={{ marginLeft: 7, marginRight: 7 }}>
-            <Col xs={2} style={{ backgroundColor: 'orange' }}>
-                <h6>Alt Kategoriler</h6>
-                <ListGroup variant="flush">
-                    {subCategories}
-                </ListGroup>
+        <Row className="ProductsPage" style={{ marginLeft: 7, marginRight: 7 }}>
+            <Col className="subCategory" lg={2}>
+                <aside>
+                    <h6 className="subCategory-header">Alt Kategoriler</h6>
+                    <ListGroup variant="flush">
+                        {subCategories}
+                    </ListGroup>
+                </aside>
             </Col>
-            <Col xs={10} style={{ backgroundColor: 'blue' }}>
-                <Row>
-                    {cards}
-                </Row>
-                <Row>
-                    {pagesNumber}
-                </Row>
+            <Col className="ProductsPage-main" xs={12} sm={12} lg={10}>
+                <section>
+                    <Row className="d-flex justify-content-center">
+                        {cards}
+                    </Row>
+                </section>
+                <section>
+                    <Row className="ProductsPage-main-pageNumber d-flex justify-content-center">
+                        {pagesNumber}
+                    </Row>
+                </section>
             </Col>
         </Row>
     )
