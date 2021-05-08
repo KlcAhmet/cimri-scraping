@@ -39,8 +39,8 @@ const MyAccount = () => {
     }, [leftForm])
 
     return (
-        <Row>
-            <Col xs={6}>
+        <Row className="d-flex justify-content-around">
+            <Col xs={11} sm={11} md={6} lg={6} style={{ marginBottom: 50 }}>
                 <Form onSubmit={(e) => {
                     e.preventDefault();
                     let gender = ""
@@ -94,7 +94,7 @@ const MyAccount = () => {
                     </div>
                 </Form>
             </Col>
-            <Col xs={6}>
+            <Col xs={11} sm={11} md={6} lg={6}>
                 <Form onSubmit={(e) => {
                     e.preventDefault();
                     console.dir(e.target)
