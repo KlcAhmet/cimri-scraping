@@ -5,7 +5,7 @@ function FirsatlarCard({ props }) {
 
     return (
         <article>
-            <Card className="firsatlarCard">
+            <Card className="firsatlarCard" onClick={() => { window.location.href = props.productLink }}>
                 <Card.Img className="firsatlarCard-headerImg" variant="top" src={props.productImageSrc} />
                 <Card.Body className="firsatlarCard-body">
                     <Card.Title className="firsatlarCard-body-title"><Image className="firsatlarCard-body-title-Img" src={etiket} fluid />{props.productTitle}</Card.Title>
@@ -14,7 +14,7 @@ function FirsatlarCard({ props }) {
                         <span className="firsatlarCard-price-lastPrice">{props.productLastPrice}</span>
                         <span className="firsatlarCard-price-newPrice">{props.productNewPrice}</span>
                     </div>
-                    <Card.Img className="firsatlarCard-body-footerImg" variant="center" src={props.productCompanyLogo} onClick={() => { window.location.href = props.productLink }} />
+                    <Card.Img className="firsatlarCard-body-footerImg" variant="center" src={props.productCompanyLogo} />
                 </Card.Body>
             </Card>
         </article>

@@ -3,6 +3,9 @@
     width: 16rem;
     padding: 7px 0;
     height: 27rem;
+    &:hover {
+        cursor: pointer;
+    }
     &-headerImg {
         width: 13rem;
         margin: 0 auto;
