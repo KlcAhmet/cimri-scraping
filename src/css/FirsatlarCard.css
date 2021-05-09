@@ -29,7 +29,9 @@
 }
 
 .firsatlarCard-body-footerImg {
-  display: block;
+  position: absolute;
+  bottom: 10px;
+  left: 24.80%;
   width: 8rem;
   margin: 0 auto;
 }
