@@ -20,6 +20,7 @@ import './css/FirsatlarCard.css'
 import './css/ProductsPage.css'
 import './css/SearchCard.css'
 import './css/PriceAlarm.css'
+import './css/Login.css'
 /* On load */
 postHeader()
 Message()
