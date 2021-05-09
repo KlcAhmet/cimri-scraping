@@ -52,15 +52,21 @@ const Header = props => {
                         }
                     }}>
                         <Row>
-                            <Col xs={11} sm={12} md={12} lg={10} ><Form.Group controlId="formText"><Form.Control type="text" placeholder="Ürün arayın" onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    e.preventDefault()
-                                    if (e.target.value !== "") {
-                                        postSearch(e.target.value)
-                                    }
-                                }
-                            }} /></Form.Group></Col>
-                            <Col xs={11} sm={12} md={12} lg={2} ><Button variant="primary" type="submit" block>ARA</Button></Col>
+                            <Col style={{ paddingRight: 0 }} xs={11} sm={12} md={12} lg={10} >
+                                <Form.Group controlId="formText">
+                                    <Form.Control type="text" placeholder="Ürün arayın" onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            e.preventDefault()
+                                            if (e.target.value !== "") {
+                                                postSearch(e.target.value)
+                                            }
+                                        }
+                                    }} />
+                                </Form.Group>
+                            </Col>
+                            <Col style={{ paddingLeft: 0 }} xs={11} sm={12} md={12} lg={2} >
+                                <Button variant="primary" type="submit" block>ARA</Button>
+                            </Col>
                         </Row>
                     </Form>
                 </Col>
