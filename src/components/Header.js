@@ -52,7 +52,7 @@ const Header = props => {
                         }
                     }}>
                         <Row>
-                            <Col style={{ paddingRight: 0 }} xs={11} sm={12} md={12} lg={10} >
+                            <Col xs={11} sm={12} md={12} lg={10} >
                                 <Form.Group controlId="formText">
                                     <Form.Control type="text" placeholder="Ürün arayın" onKeyDown={(e) => {
                                         if (e.key === 'Enter') {
@@ -64,7 +64,7 @@ const Header = props => {
                                     }} />
                                 </Form.Group>
                             </Col>
-                            <Col style={{ paddingLeft: 0 }} xs={11} sm={12} md={12} lg={2} >
+                            <Col xs={11} sm={12} md={12} lg={2} >
                                 <Button variant="primary" type="submit" block>ARA</Button>
                             </Col>
                         </Row>
