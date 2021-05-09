@@ -5,7 +5,6 @@
 }
 
 body {
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(11%, #d7d6d6), to(#eeeeee));
-  background: linear-gradient(0deg, #d7d6d6 11%, #eeeeee 100%);
+  background: #f5f4f4;
 }
 /*# sourceMappingURL=App.css.map */
