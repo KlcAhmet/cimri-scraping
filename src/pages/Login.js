@@ -9,9 +9,9 @@ const Login = props => {
 
     return (
         <Container>
-            <Row>
-                <Col>
-                    <Tabs defaultActiveKey="giris" id="uncontrolled-tab-example">
+            <Row className="login d-flex justify-content-center">
+                <Col className="login-form" xs={10} sm={10} md={5} lg={4}>
+                    <Tabs className="login-tab" defaultActiveKey="giris" id="uncontrolled-tab-example">
                         <Tab eventKey="giris" title="Giriş Yap">
                             <form onSubmit={(e) => {
                                 e.preventDefault();
