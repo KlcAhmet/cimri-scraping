@@ -1,0 +1,50 @@
+.priceAlarmCard {
+  margin-bottom: 10px;
+  margin-left: auto;
+  border: 1px solid;
+  border-color: #cecbcb;
+  border-radius: 6px;
+  padding: 7px 10px;
+  background-color: var(--white);
+}
+
+.priceAlarmCard-title {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .priceAlarmCard-title {
+    font-size: 13px;
+  }
+  .priceAlarmCard-price {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .priceAlarmCard-title {
+    font-size: 11px;
+  }
+  .priceAlarmCard-price {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .priceAlarmCard-title {
+    font-size: 10px;
+  }
+  .priceAlarmCard-price {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .priceAlarmCard-title {
+    font-size: 8px;
+  }
+  .priceAlarmCard-price {
+    font-size: 8px;
+  }
+}
+/*# sourceMappingURL=PriceAlarm.css.map */
