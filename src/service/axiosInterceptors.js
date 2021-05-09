@@ -68,21 +68,15 @@ axios.interceptors.response.use(function (response) {
     else if (response.data.success === false && response.data.type === "productinfo") { /* Events(Const.events.systemError.type) */ }
     else if (response.data.success === false && response.data.type === "changeuserinfo") { Events(Const.events.systemError.type) }
     else if (response.data.success === false && response.data.type === "changepassword") { Events(Const.events.systemError.type) }
-    else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response === false) {
-        console.log("productAlarm false");
-    }
-
-    console.dir(response)
+    else if (response.data.success === true && response.data.type === "productAlarm" && response.data.response === false) { }
 
     return response;
 }, function (err) {
     try {
-        console.log(err);
         Events(Const.events.systemError.type)
         return Promise.reject(err);
     } catch (error) {
         if (!err.status) {
-            console.log(err);
             Events(Const.events.systemError.type)
         }
         return Promise.reject(err)

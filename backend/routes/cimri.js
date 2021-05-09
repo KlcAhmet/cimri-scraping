@@ -9,7 +9,6 @@ router.route('/').get((req, res) => {
     try {
         axios.get(`${addressCimri}`)
             .then(async function (response) {
-                // console.dir(Cimri.firsatlarCimri(response.data))
                 const data = await Cimri.headerCimri(response.data)
                 res.json({
                     success: true,
@@ -87,7 +86,6 @@ router.route('/search').post((req, res) => {
                 })
             })
     } catch (error) {
-        console.log(error);
         res.json({
             success: false,
             type: 'search',
@@ -102,7 +100,6 @@ router.route('/searchsub').post((req, res) => {
         axios.get(`https://www.cimri.com${req.body.searchLink}`)
             .then(async function (response) {
                 const data = Cimri.searchCimri(response.data, response.config.url)
-                console.log(response.config.url);
                 res.json({
                     success: true,
                     type: 'subcategory',

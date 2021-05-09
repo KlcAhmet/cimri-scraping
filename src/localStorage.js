@@ -17,11 +17,9 @@ export const loadState = (initialState) => {
 }
 
 export const saveState = (state) => {
-    console.dir(state)
     try {
         const serialState = JSON.stringify(state);
         localStorage.setItem(Object.keys(state), serialState);
     } catch (err) {
-        console.log(err);
     }
 }

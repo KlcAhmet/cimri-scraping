@@ -97,7 +97,6 @@ const MyAccount = () => {
             <Col xs={11} sm={11} md={6} lg={6}>
                 <Form onSubmit={(e) => {
                     e.preventDefault();
-                    console.dir(e.target)
                     if (equalpasswords(e.target[1].value, e.target[2].value)) {
                         postUserChangePassword(e.target[1].value)
                     }
