@@ -32,7 +32,7 @@ const User = props => {
                 <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#hesap')}>Hesabım</Dropdown.Item>
                 <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#favori')}>Favorilerim</Dropdown.Item>
                 <Dropdown.Item onClick={() => history.push('/uyelik/hesabim#fiyatalarm')}>Fiyat Alarmı</Dropdown.Item>
-                <Dropdown.Item onClick={() => { Events(Const.events.exitAccount.type) }}>Çıkış</Dropdown.Item>
+                <Dropdown.Item style={{ display: ((loginButtonDisplay !== 'none' ? 'none' : 'block')) }} onClick={() => { Events(Const.events.exitAccount.type) }}>Çıkış</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     )
