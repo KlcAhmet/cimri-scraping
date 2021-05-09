@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 :root {
     --font-family-Lato: 'Lato', sans-serif;
-    --color-site: #27588a;
+    --color-site: linear-gradient(90deg, rgba(15, 11, 93, 1) 15%, rgba(36, 36, 212, 1) 90%);
 }
 
 body {
-    background-color: rgb(248, 248, 248);
+    background: linear-gradient(0deg, rgba(215, 214, 214, 1) 11%, rgba(238, 238, 238, 1) 100%);
 }

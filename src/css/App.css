@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 :root {
   --font-family-Lato: 'Lato', sans-serif;
-  --color-site: #27588a;
+  --color-site: linear-gradient(90deg, rgba(15, 11, 93, 1) 15%, rgba(36, 36, 212, 1) 90%);
 }
 
 body {
-  background-color: #f8f8f8;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(11%, #d7d6d6), to(#eeeeee));
+  background: linear-gradient(0deg, #d7d6d6 11%, #eeeeee 100%);
 }
 /*# sourceMappingURL=App.css.map */
