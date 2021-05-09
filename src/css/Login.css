@@ -1,0 +1,36 @@
+.login {
+  margin-top: 60px;
+}
+
+.login-form {
+  border: 1px solid #b1b0b0;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.login-form:hover {
+  border-color: #ff6000;
+}
+
+.login-tab {
+  margin-bottom: 8px;
+}
+
+.login-tab a {
+  font-weight: 600;
+  background-color: #e2e0e0;
+  color: #ff6000;
+}
+
+.login-tab a:hover {
+  border-top-color: #ff6000 !important;
+  border-left-color: #ff6000 !important;
+  border-right-color: #ff6000 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .login {
+    margin-top: 20px;
+  }
+}
+/*# sourceMappingURL=Login.css.map */
