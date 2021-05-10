@@ -18,7 +18,7 @@ const User = props => {
         if (userID) {
             setDisplay('none')
         }
-
+        // eslint-disable-next-line
     }, [userName])
 
     return (

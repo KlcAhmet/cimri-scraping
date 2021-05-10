@@ -1,6 +1,5 @@
 import { Row, Col, Form, Button, Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
 import { User, logo } from '../map/ComponentMap'
-import { history } from '../map/UtilsMap'
 import { useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import { postSearch } from '../map/ServiceMap'
