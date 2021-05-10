@@ -1,4 +1,4 @@
-import { Icon, IconSize, Intent } from "@blueprintjs/core"
+import { Icon, Intent } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
 import { Row, Col } from 'react-bootstrap';
 
