@@ -2,8 +2,8 @@ import {
   Router, Switch, Route
 } from "react-router-dom";
 /* Map */
-import { Home, Header, ProductsPage, ProductNotFound, Login, ProtectedAccount, Page404 } from './map/ComponentMap'
-import { history,/*  EventBus, Const, */Message, LoginEvent, ProductEvent, LocalStorageEvent } from './map/UtilsMap'
+import { Home, Header, ProductsPage, ProductNotFound, Login, ProtectedAccount, Page404, Footer } from './map/ComponentMap'
+import { history, Message, LoginEvent, ProductEvent, LocalStorageEvent } from './map/UtilsMap'
 import { postProductAlarm, postSearch } from './map/ServiceMap'
 /* Components */
 import { useSelector } from "react-redux"
@@ -21,13 +21,14 @@ import './css/ProductsPage.css'
 import './css/SearchCard.css'
 import './css/PriceAlarm.css'
 import './css/Login.css'
+import './css/Footer.css'
 /* On load */
 postHeader()
 Message()
 LoginEvent()
 ProductEvent()
 LocalStorageEvent()
-//postProductAlarm()
+postProductAlarm()
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
             <Route component={Page404} />
           </Switch>
         </main>
+        <Footer />
       </Router>
     </div >
   );
