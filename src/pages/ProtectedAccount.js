@@ -1,4 +1,3 @@
-/* import { useSelector } from "react-redux" */
 import { Container, Row, Col, ListGroup, Tab } from 'react-bootstrap'
 import { MyAccount, Favorite, PriceAlarm } from '../map/ComponentMap'
 import { history } from '../map/UtilsMap'
