@@ -7,4 +7,8 @@
 body {
   background: #f5f4f4;
 }
+
+main {
+  min-height: 71.8vh;
+}
 /*# sourceMappingURL=App.css.map */
