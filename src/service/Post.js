@@ -157,7 +157,7 @@ function postProductAlarm() {
         store.getState().UserProducts.priceAlarm.forEach((item, index) => {
             setTimeout(async function () {
                 if (index === store.getState().UserProducts.priceAlarm.length - 1) {
-                    setTimeout(function () { postProductAlarm() }, 30000);
+                    setTimeout(function () { postProductAlarm() }, 180000);
                 }
                 const body = {
                     productLink: item.productLink,
