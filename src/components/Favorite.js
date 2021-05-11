@@ -11,10 +11,17 @@ const Favorite = props => {
     useEffect(() => {
         if (favorite) {
             try {
-                favorite.forEach((item, index) => {
-                    setCard(prevArray => [...prevArray, <SearchCard classname="favorite" key={index} props={item} isLike={true} />])
+                setCard(() => {
+                    const cardsArr = []
+                    favorite.forEach((item, index) => {
+                        cardsArr.push(<SearchCard classname="favorite" key={index} props={item} isLike={true} />)
+                    })
+                    return cardsArr
+
                 })
-            } catch (error) {
+            }
+
+            catch (error) {
 
             }
         }
