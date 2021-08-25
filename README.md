@@ -1,63 +1,42 @@
-# Getting Started with Create React App
+## Kurulum
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ 1. NodeJS kurun:
+    [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+ 2. Projeyi klonlayın.
+ 3. Veritabanına bağlanmak içinmail adresim ile iletişime geçebilirsiniz. “backend” klasörü içine    dosyayı koyun.
+ 4. Terminalden projeye “`cimri-scraping`” cd olun ve “`npm install`” komutunu kullanın.
+ 5. “`backend`” kalasörüne cd olun ve “`nodemon server`” komunutu çalıştırın. Server api çalışacaktır.
+ 6. `cimri-scrapping`” cd olun ve “`npm start`” komutunu çalıştırın.
+ 7. Proje “`http://localhost:3000`” adresinde çalışmaya başlayacaktır. Tarayıcının url kısmına “`http://localhost:3000`” yazarak inceleyebilirsiniz.
 
-## Available Scripts
+## Giriş
+Javascript, Nodejs, React ve Redux kullanılarak geliştirilmiştir. Scraping için Axios Api ve Cheerio paketi kullanılmıştır. Ön yüz geliştirmesinde React ve Redux temelini oluşturmaktadır. Backend tarafında Nodejs ile api yazılmış ve Cors politikalarından sıyrılmıştır.
 
-In the project directory, you can run:
+Projenin çalışma prensibi ön yüzden Axios Api kullanılarak server’a gönderilen isteklerin, server tarafında Cimri.com’a Scraping yapılarak verileri ön yüze iletmesinden oluşuyor. Cimri.com’da istenilen ürünün bilgileri HTML formatında alınarak Cheerio paketi ile istenilen formatta ayrıştırıldıktan sonra ön yüze gönderilmektedir.
 
-### `yarn start`
+Projede veri tabanı olarak MongoDB Atlas kullanılarak online bir sistemde proje derlendikten sonra tekrardan veritabanı kurulumu gerektirmemektedir. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ - Models klasörü altında bulunan dosyalar Mongoose kullanılarak MongoDB Atlas veritabanında kullanılmak üzere modellemeler yapıldı. Veritabanında üç faklı model JSON formatında saklanmaktadır.
+ ![enter image description here](https://raw.githubusercontent.com/KlcAhmet/cimri-scraping/master/screenshot/backend2.png)
+ - Veritabanında kullanıcıların kayıt oldukları mail ve şifreleri başta olmak üzere, kullanıcı bilgileri, favori ve fiyat takibine ekledikleri ürünler saklanmaktadır.
+ - **cimri.js:** cimri.com üzerinde scraping yaparak ürün arama ve bazı sayfaları kazmaktadır.
+ - **productAlarm.js:** Ön uçta kullanıcıların fiyat alarmına ekledikleri ürünlerden gelen   request isteklerini cimri.com üzerinden sorgulayarak ürünün fiyatının durumunu response etmektedir.
+ - **userProducts.js:** Kullanıcıların favoriye veya fiyat alarmına ekledikleri ürünleri veritabanına ekleme, silme, güncelleme ve bulmak için kullanılmaktadır.
+   
+ - **Users.js:** Kullanıcıların veritabanına üyelik kaydı, giriş, şifre değiştirme ve üyelik silme için kullanılmaktadır.
+ - **Usersinfo.js:** Kullanıcıların veritabanında bilgilerini ekleme, değiştirme ve silmek için kullanılmaktadır.
+ - **cimriSearch.js:** cimri.js routue’una gelen ürün arama isteklerini cimri.com’a iletilecek request url’ını düzenlemektedir.
+ - **priceSplit.js:** productAlarm.js route’una gelen isteklerin fiyat bilgilerini istenilen forma dönüştürmek için kullanılmaktadır. Fiyat bilgisinden noktalama işaretlerini çıkartarak numerik bir forma sokarak ürünün fiyatını karşılaştırmaktadır.
+ - **Cimri.js:** Scraping yapılan bu dosyada cheerio paketi kullanılarak, cimri.com üzerinden dönen html response’una html etiketlerinde bulunan class özelliklerine göre DOM ayrıştırması yapılarak sayfalar kazınmaktadır. Tüm scraping filtreleme, ayrıştırma ve response edilmek üzere hazırlanma işlemleri bu kısımda yapılmaktadır. Bu kısımda internet üzerinde bulunan tüm e-ticaret siteleri için fonksiyonlar eklenerek genişletilebilir ve bir çok siteden ürünler çekilebilir fakat bunun olumsuz yanı server maliyetini arttıracak olmasıdır.
+ 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Görseller
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/cimri-scraping/master/screenshot/p1.png)
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/cimri-scraping/master/screenshot/p2.png)
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/cimri-scraping/master/screenshot/p3.png)
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/cimri-scraping/master/screenshot/p4.png)
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/cimri-scraping/master/screenshot/p5.png)
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/cimri-scraping/master/screenshot/p6.png)
+![enter image description here](https://raw.githubusercontent.com/KlcAhmet/cimri-scraping/master/screenshot/p7.png)
 
