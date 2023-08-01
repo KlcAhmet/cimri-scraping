@@ -3,7 +3,11 @@
  1. NodeJS kurun:
     [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
  2. Projeyi klonlayın.
- 3. Veritabanına bağlanmak içinmail adresim ile iletişime geçebilirsiniz. “backend” klasörü içine    dosyayı koyun.
+ 3. Veritabanına bağlanmak için “backend” klasörü içine .env dosyası oluşturun. [Dokümantasyon](https://www.mongodb.com/docs/drivers/node/current/usage-examples/)
+```.env
+# .env key
+ATLAS_URI=<mongodb access uri>
+```
  4. Terminalden projeye “`cimri-scraping`” cd olun ve “`npm install`” komutunu kullanın.
  5. “`backend`” kalasörüne cd olun ve “`nodemon server`” komunutu çalıştırın. Server api çalışacaktır.
  6. `cimri-scrapping`” cd olun ve “`npm start`” komutunu çalıştırın.
