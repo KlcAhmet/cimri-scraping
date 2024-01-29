@@ -1,6 +1,7 @@
 ## Önemli
 Bu proje acemi ve az bilgi sahibi olduğum zamanda yazılmıştır. Kodlarımı örnek almayınız :)
 - cimri.com'un web sitesi güncellendiği için proje'nin kodları düzgün çalışmayacaktır ve hata verecektir.(hiç çalıştırmadan incelemeniz daha iyi :) )
+- Resimlerdeki fiyatlar gerçek. Dolar 8.49 Tl bandındaydı
 
 
 ## Kurulum
