@@ -1,3 +1,8 @@
+## Önemli
+Bu proje acemi ve az bilgi sahibi olduğum zamanda yazılmıştır. Kodlarımı örnek almayınız :)
+- cimri.com'un web sitesi güncellendiği için proje'nin kodları düzgün çalışmayacaktır ve hata verecektir.(hiç çalıştırmadan incelemeniz daha iyi :) )
+
+
 ## Kurulum
 
  1. NodeJS kurun:
